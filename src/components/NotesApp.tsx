@@ -6,7 +6,7 @@ interface NotesAppProps {
 }
 
 const NotesApp: React.FC<NotesAppProps> = ({ onBack }) => {
-  const [notes, setNotes] = useState([
+  const [notes] = useState([
     { id: 1, title: 'Danh sách mua sắm', content: '- Sữa\n- Bánh mì\n- Trứng\n- Rau xanh', date: '2025-09-24' },
     { id: 2, title: 'Công việc cần làm', content: '1. Hoàn thành báo cáo\n2. Gọi điện cho khách hàng\n3. Chuẩn bị meeting', date: '2025-09-23' },
     { id: 3, title: 'Ý tưởng mới', content: 'Tạo ứng dụng quản lý task đơn giản với React...', date: '2025-09-22' }

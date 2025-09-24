@@ -15,14 +15,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ onAppOpen }) => {
     });
   };
 
-  const getCurrentDate = () => {
-    const now = new Date();
-    return now.toLocaleDateString('vi-VN', {
-      weekday: 'long',
-      day: 'numeric',
-      month: 'long'
-    });
-  };
+
 
   const apps = [
     { id: 'messages', name: 'Messages', icon: '💬', color: '#007AFF' },
