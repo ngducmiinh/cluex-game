@@ -1,0 +1,290 @@
+/* Phone App Styles */
+.phone-app {
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.phone-header {
+  display: flex;
+  align-items: center;
+  padding: 14px 16px;
+  background: #007AFF;
+  color: white;
+  min-height: 56px;
+}
+
+.phone-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 500;
+  color: white;
+  flex: 1;
+  text-align: center;
+  margin-right: 40px;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: white !important;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.phone-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.phone-display {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.phone-input {
+  width: 100%;
+  max-width: 300px;
+  padding: 15px;
+  font-size: 24px;
+  text-align: center;
+  border: none;
+  border-bottom: 2px solid #e0e0e0;
+  background: transparent;
+  outline: none;
+  letter-spacing: 2px;
+}
+
+.dial-pad {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.dial-row {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.dial-button {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid #e0e0e0;
+  background: #f8f8f8;
+  font-size: 24px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dial-button:hover {
+  background: #e0e0e0;
+  transform: scale(1.05);
+}
+
+.dial-button:active {
+  transform: scale(0.95);
+}
+
+.phone-controls {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 30px;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.delete-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  background: #f0f0f0;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.delete-button:hover {
+  background: #e0e0e0;
+}
+
+.call-button {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: none;
+  background: #00C853;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(0, 200, 83, 0.4);
+}
+
+.call-button:hover:not(:disabled) {
+  background: #00A847;
+  transform: scale(1.05);
+}
+
+.call-button:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Call Screen Styles - Reuse from ChatView */
+.call-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  color: white;
+}
+
+.call-interface {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 80%;
+  width: 100%;
+  max-width: 300px;
+  padding: 40px 20px;
+}
+
+.caller-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.caller-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  color: white;
+  margin-bottom: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.caller-name {
+  font-size: 24px;
+  font-weight: 300;
+  margin: 0 0 20px 0;
+  color: white;
+}
+
+.call-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.call-status p {
+  font-size: 16px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.busy-message {
+  color: #ff6b6b !important;
+  font-weight: 500;
+}
+
+.calling-animation {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.pulse-ring {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulsate 2s ease-out infinite;
+}
+
+.pulse-ring-delay-1 {
+  animation-delay: 0.7s;
+}
+
+.pulse-ring-delay-2 {
+  animation-delay: 1.4s;
+}
+
+@keyframes pulsate {
+  0% {
+    transform: translate(-50%, -50%) scale(0.1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0;
+  }
+}
+
+.call-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.end-call-button {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #ff4757;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
+}
+
+.end-call-button:hover {
+  background: #ff3742;
+  transform: scale(1.05);
+}
+
+.end-call-button:active {
+  transform: scale(0.95);
+}

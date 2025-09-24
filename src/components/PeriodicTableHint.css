@@ -1,0 +1,179 @@
+/* Periodic Table Hint Modal */
+.hint-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+.hint-modal {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  border-radius: 20px;
+  padding: 25px;
+  max-width: 500px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  color: white;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.4s ease;
+}
+
+.hint-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hint-header h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.close-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.periodic-hint {
+  text-align: center;
+}
+
+.hint-text {
+  font-size: 16px;
+  margin-bottom: 25px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.elements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.element-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 15px 10px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.element-card:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.element-number {
+  font-size: 12px;
+  font-weight: bold;
+  color: #3498db;
+  margin-bottom: 5px;
+}
+
+.element-symbol {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.element-name {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: capitalize;
+}
+
+.hint-footer {
+  background: rgba(52, 152, 219, 0.1);
+  border-radius: 10px;
+  padding: 15px;
+  border-left: 4px solid #3498db;
+}
+
+.hint-clue {
+  margin: 0;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.4;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .hint-modal {
+    padding: 20px;
+    margin: 10px;
+  }
+  
+  .hint-header h3 {
+    font-size: 18px;
+  }
+  
+  .elements-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .element-card {
+    padding: 10px 8px;
+  }
+  
+  .element-symbol {
+    font-size: 20px;
+  }
+  
+  .hint-text {
+    font-size: 14px;
+  }
+  
+  .hint-clue {
+    font-size: 12px;
+  }
+}

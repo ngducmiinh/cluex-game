@@ -1,0 +1,132 @@
+/* Calculator App Styles */
+.calculator-app {
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.calculator-header {
+  display: flex;
+  align-items: center;
+  padding: 14px 16px;
+  background: #007AFF;
+  color: white;
+  min-height: 56px;
+}
+
+.calculator-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 500;
+  color: white;
+  flex: 1;
+  text-align: center;
+  margin-right: 40px;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: white !important;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.calculator-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.calculator-display {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 40px 20px;
+  background: #000000;
+}
+
+.display-text {
+  font-size: 48px;
+  font-weight: 200;
+  color: white;
+  text-align: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.calculator-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-row {
+  display: flex;
+  height: 70px;
+}
+
+.calc-button {
+  flex: 1;
+  border: none;
+  font-size: 28px;
+  font-weight: 400;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.1s ease;
+  border: 0.5px solid #333333;
+}
+
+.calc-button:active {
+  opacity: 0.7;
+}
+
+.calc-button.number {
+  background: #333333;
+  color: white;
+}
+
+.calc-button.number:hover {
+  background: #404040;
+}
+
+.calc-button.operator {
+  background: #ff9500;
+  color: white;
+}
+
+.calc-button.operator:hover {
+  background: #ffad33;
+}
+
+.calc-button.function {
+  background: #a6a6a6;
+  color: black;
+}
+
+.calc-button.function:hover {
+  background: #bfbfbf;
+}
+
+.calc-button.zero {
+  flex: 2;
+  text-align: left;
+  padding-left: 35px;
+}
+
+.calc-button.equals {
+  background: #ff9500;
+  color: white;
+}
