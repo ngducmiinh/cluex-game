@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import LandingPage from './components/LandingPage';
 import LockScreen from './components/LockScreen';
 import HomeScreen from './components/HomeScreen';
 import MessagesApp from './components/MessagesApp';
@@ -10,10 +11,17 @@ import NotesApp from './components/NotesApp';
 import CalculatorApp from './components/CalculatorApp';
 import './App.css';
 
+type AppScreen = 'landing' | 'phone';
 type PhoneScreen = 'lock' | 'home' | 'messages' | 'phone' | 'camera' | 'photos' | 'weather' | 'notes' | 'calculator';
 
 function App() {
+  const [currentApp, setCurrentApp] = useState<AppScreen>('landing');
   const [currentScreen, setCurrentScreen] = useState<PhoneScreen>('lock');
+
+  const handleStartResearch = () => {
+    setCurrentApp('phone');
+    setCurrentScreen('lock');
+  };
 
   const handleUnlock = () => {
     setCurrentScreen('home');
@@ -76,13 +84,36 @@ function App() {
     }
   };
 
+  const handleBackToLanding = () => {
+    setCurrentApp('landing');
+    setCurrentScreen('lock');
+  };
+
+  const renderApp = () => {
+    switch (currentApp) {
+      case 'landing':
+        return <LandingPage onStartResearch={handleStartResearch} />;
+      case 'phone':
+        return (
+          <div className="phone-app-container">
+            <button className="back-to-landing-button" onClick={handleBackToLanding}>
+              ← Quay lại trang chủ
+            </button>
+            <div className="phone-container">
+              <div className="phone-screen">
+                {renderScreen()}
+              </div>
+            </div>
+          </div>
+        );
+      default:
+        return <LandingPage onStartResearch={handleStartResearch} />;
+    }
+  };
+
   return (
     <div className="App">
-      <div className="phone-container">
-        <div className="phone-screen">
-          {renderScreen()}
-        </div>
-      </div>
+      {renderApp()}
     </div>
   );
 }

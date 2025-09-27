@@ -10,6 +10,7 @@ const LockScreen: React.FC<LockScreenProps> = ({ onUnlock }) => {
   const [password, setPassword] = useState('');
   const [showError, setShowError] = useState(false);
   const [showHint, setShowHint] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const correctPassword = '123456';
 
   const getCurrentTime = () => {
@@ -45,14 +46,9 @@ const LockScreen: React.FC<LockScreenProps> = ({ onUnlock }) => {
   const handleHint = () => {
     setShowHint(true);
   };
-
-  const renderPasswordDots = () => {
-    return Array.from({ length: 6 }, (_, index) => (
-      <div 
-        key={index} 
-        className={`password-dot ${index < password.length ? 'filled' : ''}`}
-      />
-    ));
+  
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   };
 
   return (
@@ -68,42 +64,61 @@ const LockScreen: React.FC<LockScreenProps> = ({ onUnlock }) => {
 
       <div className="lock-content">
         <div className="lock-header">
-          <h2 className="lock-title">Nhập mật khẩu</h2>
-          {showError && (
-            <p className="error-message">Mật khẩu không đúng</p>
-          )}
+          <h2 className="lock-title">Mật khẩu của bạn</h2>
         </div>
 
-        <div className="password-input">
-          <div className="password-dots">
-            {renderPasswordDots()}
-          </div>
+        <div className="password-input-container">
+          <input 
+            type={showPassword ? "text" : "password"}
+            className="password-text-field"
+            value={password}
+            readOnly
+            placeholder=""
+          />
+          <button 
+            className="toggle-visibility-btn" 
+            onClick={togglePasswordVisibility}
+          >
+            {showPassword ? (
+              <span className="visibility-icon">👁️</span>
+            ) : (
+              <span className="visibility-icon">👁️‍🗨️</span>
+            )}
+          </button>
         </div>
+        
+        {showError && (
+          <div className="error-message">Sai mật khẩu. Vui lòng thử lại.</div>
+        )}
 
-        <div className="keypad">
+        <div className="keypad-grid">
           {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(num => (
-            <button
-              key={num}
-              className="keypad-btn number"
+            <button 
+              key={num} 
+              className="keypad-button"
               onClick={() => handleNumberPress(num.toString())}
             >
               {num}
+              {num === 2 && <div className="letter-hint">ABC</div>}
+              {num === 3 && <div className="letter-hint">DEF</div>}
+              {num === 4 && <div className="letter-hint">GHI</div>}
+              {num === 5 && <div className="letter-hint">JKL</div>}
+              {num === 6 && <div className="letter-hint">MNO</div>}
+              {num === 7 && <div className="letter-hint">PQRS</div>}
+              {num === 8 && <div className="letter-hint">TUV</div>}
+              {num === 9 && <div className="letter-hint">WXYZ</div>}
             </button>
           ))}
+          <div className="keypad-button empty"></div>
           <button 
-            className="keypad-btn hint"
-            onClick={handleHint}
-          >
-            Gợi ý
-          </button>
-          <button
-            className="keypad-btn number"
+            className="keypad-button"
             onClick={() => handleNumberPress('0')}
           >
             0
+            <div className="letter-hint">_</div>
           </button>
-          <button
-            className="keypad-btn delete"
+          <button 
+            className="keypad-button delete"
             onClick={handleDelete}
           >
             ⌫
@@ -111,10 +126,13 @@ const LockScreen: React.FC<LockScreenProps> = ({ onUnlock }) => {
         </div>
 
         <div className="action-buttons">
+          <button className="button secondary" onClick={handleHint}>
+            Gợi ý
+          </button>
           <button 
-            className="continue-btn"
+            className="button primary"
             onClick={handleContinue}
-            disabled={password.length !== 6}
+            disabled={password.length === 0}
           >
             Tiếp tục
           </button>
