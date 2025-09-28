@@ -104,9 +104,9 @@ const GolfCaseSuccessScreen: React.FC<GolfCaseSuccessScreenProps> = ({ onBackToL
             <div className="evidence-images">
               <div className="evidence-image-container">
                 <img 
-                  src="/images/golfcase/ques1.jpg" 
+                  src="./images/golfcase/ques1.jpg" 
                   className="evidence-image"
-                  onClick={() => setPopupImage("/images/golfcase/ques1.jpg")}
+                  onClick={() => setPopupImage("./images/golfcase/ques1.jpg")}
                   alt="Bằng chứng - Bản ghi cuộc gọi với 113"
                 />
                 <p className="image-hint">Nhấn ảnh để xem rõ hơn ạ</p>
@@ -114,9 +114,9 @@ const GolfCaseSuccessScreen: React.FC<GolfCaseSuccessScreenProps> = ({ onBackToL
               
               <div className="evidence-image-container">
                 <img 
-                  src="/images/golfcase/ques2.jpg" 
+                  src="./images/golfcase/ques2.jpg" 
                   className="evidence-image"
-                  onClick={() => setPopupImage("/images/golfcase/ques2.jpg")} 
+                  onClick={() => setPopupImage("./images/golfcase/ques2.jpg")} 
                   alt="Bằng chứng - Dòng 14 trong bản ghi âm"
                 />
                 <p className="image-hint">Nhấn ảnh để xem rõ hơn ạ</p>
