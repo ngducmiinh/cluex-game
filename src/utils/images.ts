@@ -3,25 +3,25 @@
 export const IMAGES = {
   // Icons
   ICONS: {
-    CLUEX_LOGO: '/images/icons/cluexicon.png',
-    MESSAGES: '/images/icons/messages-icon.svg',
-    PHONE: '/images/icons/phone-icon.svg',
-    CAMERA: '/images/icons/camera-icon.svg',
-    PHOTOS: '/images/icons/photos-icon.svg',
-    CALCULATOR: '/images/icons/calculator-icon.svg',
+    CLUEX_LOGO: process.env.PUBLIC_URL + '/images/icons/cluexicon.png',
+    MESSAGES: process.env.PUBLIC_URL + '/images/icons/messages-icon.svg',
+    PHONE: process.env.PUBLIC_URL + '/images/icons/phone-icon.svg',
+    CAMERA: process.env.PUBLIC_URL + '/images/icons/camera-icon.svg',
+    PHOTOS: process.env.PUBLIC_URL + '/images/icons/photos-icon.svg',
+    CALCULATOR: process.env.PUBLIC_URL + '/images/icons/calculator-icon.svg',
   },
   
   // Avatars
   AVATARS: {
-    USER1: '/images/avatars/user1.svg',
-    USER2: '/images/avatars/user2.svg',
-    USER3: '/images/avatars/user3.svg',
+    USER1: process.env.PUBLIC_URL + '/images/avatars/user1.svg',
+    USER2: process.env.PUBLIC_URL + '/images/avatars/user2.svg',
+    USER3: process.env.PUBLIC_URL + '/images/avatars/user3.svg',
   },
   
   // Backgrounds (placeholder paths)
   BACKGROUNDS: {
-    LANDING: '/images/backgrounds/landing-bg.jpg',
-    LOCK_SCREEN: '/images/backgrounds/lock-screen-bg.jpg',
+    LANDING: process.env.PUBLIC_URL + '/images/backgrounds/landing-bg.jpg',
+    LOCK_SCREEN: process.env.PUBLIC_URL + '/images/backgrounds/lock-screen-bg.jpg',
   }
 };
 
