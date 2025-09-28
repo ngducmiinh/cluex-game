@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
 import './LandingPage.css';
+import IMAGES from '../assets';
 
 interface LandingPageProps {
   onStartResearch: () => void;
+  onStartTranTroi: () => void;
+  onStartSanGolf: () => void;
 }
 
-const LandingPage: React.FC<LandingPageProps> = ({ onStartResearch }) => {
+const LandingPage: React.FC<LandingPageProps> = ({ 
+  onStartResearch,
+  onStartTranTroi,
+  onStartSanGolf
+}) => {
   const [selectedOption, setSelectedOption] = useState<string>('');
 
   const handleOptionSelect = (option: string) => {
@@ -15,23 +22,35 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartResearch }) => {
   const handleContinue = () => {
     if (selectedOption === 'nghien-cuu') {
       onStartResearch();
+    } else if (selectedOption === 'tran-troi') {
+      onStartTranTroi();
+    } else if (selectedOption === 'san-golf') {
+      onStartSanGolf();
     }
-    // Handle other options if needed
+  };
+
+  // Sử dụng ảnh background từ assets
+  const backgroundStyle = {
+    backgroundImage: `url(${IMAGES.backgrounds.main})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center'
   };
 
   return (
     <div className="landing-page">
+      {/* Chỉ sử dụng ảnh làm background, không có hiệu ứng khác */}
+      <div className="background-image" style={backgroundStyle}></div>
       <div className="landing-container">
         <div className="logo-section">
           <div className="logo-circle">
-            <img src="/images/icons/cluexicon.png" alt="ClueX Logo" className="logo-svg" />
+            <img src={IMAGES.icons.logo} alt="ClueX Logo" className="logo-svg" />
           </div>
           <h1 className="main-title">Đáp án ClueX Game</h1>
         </div>
 
         <div className="info-box">
           <p className="info-text">
-            Điền thông tin của bạn khi mua hàng và ăn tiếp tục để xem đáp án
+            Chọn hồ sơ bạn đã mua
           </p>
           
           <div className="options-list">
@@ -39,13 +58,13 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartResearch }) => {
               <div className={`radio-button ${selectedOption === 'tran-troi' ? 'selected' : ''}`}>
                 <div className="radio-inner"></div>
               </div>
-              <span className="option-text">Lối tràn trôi</span>
+              <span className="option-text">Lời trăn trối</span>
             </div>
             <div className="option-item" onClick={() => handleOptionSelect('san-golf')}>
               <div className={`radio-button ${selectedOption === 'san-golf' ? 'selected' : ''}`}>
                 <div className="radio-inner"></div>
               </div>
-              <span className="option-text">Vụ án sân golf</span>
+              <span className="option-text">Vụ án sân Golf</span>
             </div>
             <div className="option-item research-option" onClick={() => handleOptionSelect('nghien-cuu')}>
               <div className={`radio-button ${selectedOption === 'nghien-cuu' ? 'selected' : ''}`}>

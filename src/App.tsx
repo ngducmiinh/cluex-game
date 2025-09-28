@@ -9,18 +9,43 @@ import PhotosApp from './components/PhotosApp';
 import WeatherApp from './components/WeatherApp';
 import NotesApp from './components/NotesApp';
 import CalculatorApp from './components/CalculatorApp';
+import GolfCaseScreen from './components/GolfCaseScreen';
+import GolfCaseNextQuestionScreen from './components/GolfCaseNextQuestionScreen';
+import GolfCaseSuccessScreen from './components/GolfCaseSuccessScreen';
 import './App.css';
 
-type AppScreen = 'landing' | 'phone';
+// Thêm các loại màn hình ứng dụng mới
+type AppScreen = 'landing' | 'phone' | 'tran-troi' | 'san-golf' | 'san-golf-next-question' | 'san-golf-success';
 type PhoneScreen = 'lock' | 'home' | 'messages' | 'phone' | 'camera' | 'photos' | 'weather' | 'notes' | 'calculator';
 
 function App() {
   const [currentApp, setCurrentApp] = useState<AppScreen>('landing');
   const [currentScreen, setCurrentScreen] = useState<PhoneScreen>('lock');
 
+  // Xử lý chọn "Nghiên cứu" - Big Case
   const handleStartResearch = () => {
     setCurrentApp('phone');
     setCurrentScreen('lock');
+  };
+  
+  // Xử lý chọn "Lối trần trời"
+  const handleStartTranTroi = () => {
+    setCurrentApp('tran-troi');
+  };
+  
+  // Xử lý chọn "Vụ án sân Golf"
+  const handleStartSanGolf = () => {
+    setCurrentApp('san-golf');
+  };
+  
+  // Xử lý khi trả lời đúng câu hỏi đầu tiên của Vụ án sân Golf
+  const handleGolfCorrectAnswer = () => {
+    setCurrentApp('san-golf-next-question');
+  };
+  
+  // Xử lý khi phá án thành công
+  const handleGolfSolveCase = () => {
+    setCurrentApp('san-golf-success');
   };
 
   const handleUnlock = () => {
@@ -92,7 +117,11 @@ function App() {
   const renderApp = () => {
     switch (currentApp) {
       case 'landing':
-        return <LandingPage onStartResearch={handleStartResearch} />;
+        return <LandingPage 
+          onStartResearch={handleStartResearch}
+          onStartTranTroi={handleStartTranTroi}
+          onStartSanGolf={handleStartSanGolf}
+        />;
       case 'phone':
         return (
           <div className="phone-app-container">
@@ -106,8 +135,47 @@ function App() {
             </div>
           </div>
         );
+      case 'tran-troi':
+        return (
+          <div className="case-container">
+            <button className="back-to-landing-button" onClick={handleBackToLanding}>
+              ← Quay lại trang chủ
+            </button>
+            <div className="case-content">
+              <h1>Lời Trăn Trối</h1>
+              <p>Nội dung đáp án cho Lời Trăn Trối sẽ được hiển thị ở đây.</p>
+              <p>Hồ sơ này đang được chuẩn bị...</p>
+            </div>
+          </div>
+        );
+      case 'san-golf':
+        return (
+          <GolfCaseScreen 
+            onBackToLanding={handleBackToLanding}
+            onCorrectAnswer={handleGolfCorrectAnswer}
+          />
+        );
+        
+      case 'san-golf-next-question':
+        return (
+          <GolfCaseNextQuestionScreen 
+            onBackToLanding={handleBackToLanding}
+            onSolveCase={handleGolfSolveCase}
+          />
+        );
+        
+      case 'san-golf-success':
+        return (
+          <GolfCaseSuccessScreen 
+            onBackToLanding={handleBackToLanding}
+          />
+        );
       default:
-        return <LandingPage onStartResearch={handleStartResearch} />;
+        return <LandingPage 
+          onStartResearch={handleStartResearch}
+          onStartTranTroi={handleStartTranTroi}
+          onStartSanGolf={handleStartSanGolf}
+        />;
     }
   };
 

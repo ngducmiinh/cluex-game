@@ -2,7 +2,7 @@
 .landing-page {
   width: 100vw;
   height: 100vh;
-  background: #1a1a1a;
+  background: transparent; /* Nền trong suốt để chỉ hiển thị hình ảnh */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,8 +12,7 @@
   overflow: hidden;
 }
 
-.landing-page::before {
-  content: '';
+.background-image {
   position: absolute;
   top: 0;
   left: 0;
@@ -21,11 +20,7 @@
   bottom: 0;
   width: 100%;
   height: 100%;
-  background: 
-    linear-gradient(45deg, transparent 46%, rgba(255, 107, 107, 0.06) 48%, rgba(255, 107, 107, 0.12) 50%, rgba(255, 107, 107, 0.06) 52%, transparent 54%),
-    linear-gradient(-45deg, transparent 46%, rgba(255, 107, 107, 0.06) 48%, rgba(255, 107, 107, 0.12) 50%, rgba(255, 107, 107, 0.06) 52%, transparent 54%);
   z-index: 0;
-  opacity: 1;
 }
 
 
@@ -34,8 +29,9 @@
   max-width: 500px;
   width: 90%;
   text-align: center;
-  z-index: 1;
+  z-index: 2; /* Ensure this is above the background */
   position: relative;
+  background: transparent; /* Container nền trong suốt để thấy được hình ảnh background */
 }
 
 .logo-section {
@@ -70,10 +66,9 @@
 }
 
 .info-box {
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.4); /* Nền nhẹ để có thể đọc được chữ trên background */
   border-radius: 16px;
   padding: 30px;
-  backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
