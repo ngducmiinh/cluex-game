@@ -4,14 +4,14 @@ import IMAGES from '../assets';
 
 interface LandingPageProps {
   onStartResearch: () => void;
-  onStartTranTroi: () => void;
   onStartSanGolf: () => void;
+  onStartLastWords?: () => void;
 }
 
 const LandingPage: React.FC<LandingPageProps> = ({ 
   onStartResearch,
-  onStartTranTroi,
-  onStartSanGolf
+  onStartSanGolf,
+  onStartLastWords
 }) => {
   const [selectedOption, setSelectedOption] = useState<string>('');
 
@@ -22,10 +22,10 @@ const LandingPage: React.FC<LandingPageProps> = ({
   const handleContinue = () => {
     if (selectedOption === 'nghien-cuu') {
       onStartResearch();
-    } else if (selectedOption === 'tran-troi') {
-      onStartTranTroi();
     } else if (selectedOption === 'san-golf') {
       onStartSanGolf();
+    } else if (selectedOption === 'last-words' && onStartLastWords) {
+      onStartLastWords();
     }
   };
 
@@ -54,11 +54,11 @@ const LandingPage: React.FC<LandingPageProps> = ({
           </p>
           
           <div className="options-list">
-            <div className="option-item" onClick={() => handleOptionSelect('tran-troi')}>
-              <div className={`radio-button ${selectedOption === 'tran-troi' ? 'selected' : ''}`}>
+            <div className="option-item" onClick={() => handleOptionSelect('last-words')}>
+              <div className={`radio-button ${selectedOption === 'last-words' ? 'selected' : ''}`}>
                 <div className="radio-inner"></div>
               </div>
-              <span className="option-text">Lời trăn trối</span>
+              <span className="option-text">Lời Trăn Trối</span>
             </div>
             <div className="option-item" onClick={() => handleOptionSelect('san-golf')}>
               <div className={`radio-button ${selectedOption === 'san-golf' ? 'selected' : ''}`}>

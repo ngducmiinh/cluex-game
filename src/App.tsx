@@ -12,10 +12,13 @@ import CalculatorApp from './components/CalculatorApp';
 import GolfCaseScreen from './components/GolfCaseScreen';
 import GolfCaseNextQuestionScreen from './components/GolfCaseNextQuestionScreen';
 import GolfCaseSuccessScreen from './components/GolfCaseSuccessScreen';
+import LastWordsScreen from './components/LastWordsScreen';
+import LastWordsNextQuestionScreen from './components/LastWordsNextQuestionScreen';
+import LastWordsSuccessScreen from './components/LastWordsSuccessScreen';
 import './App.css';
 
 // Thêm các loại màn hình ứng dụng mới
-type AppScreen = 'landing' | 'phone' | 'tran-troi' | 'san-golf' | 'san-golf-next-question' | 'san-golf-success';
+type AppScreen = 'landing' | 'phone' | 'san-golf' | 'san-golf-next-question' | 'san-golf-success' | 'last-words' | 'last-words-next-question' | 'last-words-success';
 type PhoneScreen = 'lock' | 'home' | 'messages' | 'phone' | 'camera' | 'photos' | 'weather' | 'notes' | 'calculator';
 
 function App() {
@@ -28,14 +31,14 @@ function App() {
     setCurrentScreen('lock');
   };
   
-  // Xử lý chọn "Lối trần trời"
-  const handleStartTranTroi = () => {
-    setCurrentApp('tran-troi');
-  };
-  
   // Xử lý chọn "Vụ án sân Golf"
   const handleStartSanGolf = () => {
     setCurrentApp('san-golf');
+  };
+  
+  // Xử lý chọn "Lời Trăn Trối"
+  const handleStartLastWords = () => {
+    setCurrentApp('last-words');
   };
   
   // Xử lý khi trả lời đúng câu hỏi đầu tiên của Vụ án sân Golf
@@ -46,6 +49,16 @@ function App() {
   // Xử lý khi phá án thành công
   const handleGolfSolveCase = () => {
     setCurrentApp('san-golf-success');
+  };
+  
+  // Xử lý khi trả lời đúng câu hỏi đầu tiên của Lời Trăn Trối
+  const handleLastWordsCorrectAnswer = () => {
+    setCurrentApp('last-words-next-question');
+  };
+  
+  // Xử lý khi phá án Lời Trăn Trối thành công
+  const handleLastWordsSolveCase = () => {
+    setCurrentApp('last-words-success');
   };
 
   const handleUnlock = () => {
@@ -119,8 +132,8 @@ function App() {
       case 'landing':
         return <LandingPage 
           onStartResearch={handleStartResearch}
-          onStartTranTroi={handleStartTranTroi}
           onStartSanGolf={handleStartSanGolf}
+          onStartLastWords={handleStartLastWords}
         />;
       case 'phone':
         return (
@@ -135,18 +148,28 @@ function App() {
             </div>
           </div>
         );
-      case 'tran-troi':
+
+      case 'last-words':
         return (
-          <div className="case-container">
-            <button className="back-to-landing-button" onClick={handleBackToLanding}>
-              ← Quay lại trang chủ
-            </button>
-            <div className="case-content">
-              <h1>Lời Trăn Trối</h1>
-              <p>Nội dung đáp án cho Lời Trăn Trối sẽ được hiển thị ở đây.</p>
-              <p>Hồ sơ này đang được chuẩn bị...</p>
-            </div>
-          </div>
+          <LastWordsScreen 
+            onBackToLanding={handleBackToLanding}
+            onCorrectAnswer={handleLastWordsCorrectAnswer}
+          />
+        );
+        
+      case 'last-words-next-question':
+        return (
+          <LastWordsNextQuestionScreen 
+            onBackToLanding={handleBackToLanding}
+            onSolveCase={handleLastWordsSolveCase}
+          />
+        );
+        
+      case 'last-words-success':
+        return (
+          <LastWordsSuccessScreen 
+            onBackToLanding={handleBackToLanding}
+          />
         );
       case 'san-golf':
         return (
@@ -173,8 +196,8 @@ function App() {
       default:
         return <LandingPage 
           onStartResearch={handleStartResearch}
-          onStartTranTroi={handleStartTranTroi}
           onStartSanGolf={handleStartSanGolf}
+          onStartLastWords={handleStartLastWords}
         />;
     }
   };
