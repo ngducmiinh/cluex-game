@@ -11,7 +11,7 @@ const LockScreen: React.FC<LockScreenProps> = ({ onUnlock }) => {
   const [showError, setShowError] = useState(false);
   const [showHint, setShowHint] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const correctPassword = '123456';
+  const correctPassword = '103117';
 
   const getCurrentTime = () => {
     const now = new Date();
@@ -24,8 +24,33 @@ const LockScreen: React.FC<LockScreenProps> = ({ onUnlock }) => {
 
   const handleNumberPress = (num: string) => {
     if (password.length < 6) {
-      setPassword(prev => prev + num);
+      const newPassword = password + num;
+      setPassword(newPassword);
       setShowError(false);
+      
+      // Automatically validate when 6 digits are entered
+      if (newPassword.length === 6) {
+        validatePassword(newPassword);
+      }
+    }
+  };
+  
+  const validatePassword = (pass: string) => {
+    if (pass === correctPassword) {
+      onUnlock();
+    } else {
+      setShowError(true);
+      setPassword('');
+      
+      // Add vibration if supported
+      if (navigator.vibrate) {
+        navigator.vibrate([100, 50, 100]);
+      }
+      
+      // Automatically hide error after 2 seconds
+      setTimeout(() => {
+        setShowError(false);
+      }, 2000);
     }
   };
 
@@ -34,14 +59,7 @@ const LockScreen: React.FC<LockScreenProps> = ({ onUnlock }) => {
     setShowError(false);
   };
 
-  const handleContinue = () => {
-    if (password === correctPassword) {
-      onUnlock();
-    } else {
-      setShowError(true);
-      setPassword('');
-    }
-  };
+
 
   const handleHint = () => {
     setShowHint(true);
@@ -53,38 +71,23 @@ const LockScreen: React.FC<LockScreenProps> = ({ onUnlock }) => {
 
   return (
     <div className="lock-screen">
-      <div className="status-bar">
-        <span className="time">{getCurrentTime()}</span>
-        <div className="status-icons">
-          <span className="signal">📶</span>
-          <span className="wifi">📶</span>
-          <span className="battery">100%</span>
+      <div className="lock-status-container">
+        <div className="lock-status-pill">
         </div>
       </div>
 
       <div className="lock-content">
         <div className="lock-header">
-          <h2 className="lock-title">Mật khẩu của bạn</h2>
+          <h2 className="lock-title">Nhập mật mã</h2>
         </div>
 
-        <div className="password-input-container">
-          <input 
-            type={showPassword ? "text" : "password"}
-            className="password-text-field"
-            value={password}
-            readOnly
-            placeholder=""
-          />
-          <button 
-            className="toggle-visibility-btn" 
-            onClick={togglePasswordVisibility}
-          >
-            {showPassword ? (
-              <span className="visibility-icon">👁️</span>
-            ) : (
-              <span className="visibility-icon">👁️‍🗨️</span>
-            )}
-          </button>
+        <div className={`password-dots-container ${showError ? 'password-error' : ''}`}>
+          {[1, 2, 3, 4, 5, 6].map((_, index) => (
+            <div 
+              key={index} 
+              className={`password-dot ${index < password.length ? 'filled' : ''} ${showError ? 'error' : ''}`}
+            />
+          ))}
         </div>
         
         {showError && (
@@ -98,15 +101,15 @@ const LockScreen: React.FC<LockScreenProps> = ({ onUnlock }) => {
               className="keypad-button"
               onClick={() => handleNumberPress(num.toString())}
             >
-              {num}
-              {num === 2 && <div className="letter-hint">ABC</div>}
-              {num === 3 && <div className="letter-hint">DEF</div>}
-              {num === 4 && <div className="letter-hint">GHI</div>}
-              {num === 5 && <div className="letter-hint">JKL</div>}
-              {num === 6 && <div className="letter-hint">MNO</div>}
-              {num === 7 && <div className="letter-hint">PQRS</div>}
-              {num === 8 && <div className="letter-hint">TUV</div>}
-              {num === 9 && <div className="letter-hint">WXYZ</div>}
+              <span className="number">{num}</span>
+              {num === 2 && <div className="letter-hint">A B C</div>}
+              {num === 3 && <div className="letter-hint">D E F</div>}
+              {num === 4 && <div className="letter-hint">G H I</div>}
+              {num === 5 && <div className="letter-hint">J K L</div>}
+              {num === 6 && <div className="letter-hint">M N O</div>}
+              {num === 7 && <div className="letter-hint">P Q R S</div>}
+              {num === 8 && <div className="letter-hint">T U V</div>}
+              {num === 9 && <div className="letter-hint">W X Y Z</div>}
             </button>
           ))}
           <div className="keypad-button empty"></div>
@@ -114,11 +117,10 @@ const LockScreen: React.FC<LockScreenProps> = ({ onUnlock }) => {
             className="keypad-button"
             onClick={() => handleNumberPress('0')}
           >
-            0
-            <div className="letter-hint">_</div>
+            <span className="number">0</span>
           </button>
           <button 
-            className="keypad-button delete"
+            className="keypad-button delete-button"
             onClick={handleDelete}
           >
             ⌫
@@ -128,13 +130,6 @@ const LockScreen: React.FC<LockScreenProps> = ({ onUnlock }) => {
         <div className="action-buttons">
           <button className="button secondary" onClick={handleHint}>
             Gợi ý
-          </button>
-          <button 
-            className="button primary"
-            onClick={handleContinue}
-            disabled={password.length === 0}
-          >
-            Tiếp tục
           </button>
         </div>
       </div>

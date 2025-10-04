@@ -19,8 +19,8 @@ const PhotosApp: React.FC<PhotosAppProps> = ({ onBack }) => {
 
   return (
     <div className="photos-app">
-      <div className="photos-header">
-        <button className="back-button" onClick={onBack}>
+      <div className="app-header">
+        <button className="app-back-button" onClick={onBack}>
           <span>←</span>
         </button>
         <h2>Photos</h2>

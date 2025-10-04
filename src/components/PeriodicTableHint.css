@@ -27,13 +27,24 @@
   animation: slideUp 0.4s ease;
 }
 
+.periodic-table-modal {
+  max-width: 90%;
+  width: 900px;
+  background: #ffffff;
+}
+
 .hint-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
   padding-bottom: 15px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #007AFF;
+  margin: -25px -25px 20px -25px;
+  padding: 20px 25px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
 .hint-header h3 {
@@ -64,6 +75,22 @@
 
 .periodic-hint {
   text-align: center;
+}
+
+.periodic-table-image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.full-periodic-table {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .hint-text {

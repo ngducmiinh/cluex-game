@@ -136,12 +136,10 @@ function App() {
         return (
           <div className="phone-app-container">
             <button className="back-to-landing-button" onClick={handleBackToLanding}>
-              ← Quay lại trang chủ
+              Quay lại trang chủ
             </button>
             <div className="phone-container">
-              <div className="phone-screen">
-                {renderScreen()}
-              </div>
+              {renderScreen()}
             </div>
           </div>
         );

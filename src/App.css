@@ -117,11 +117,10 @@ body.no-scroll {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
-  max-height: 100vh;
-  overflow-y: auto;
   width: 100%;
-  padding: 20px 0;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
 }
 
 .case-content {
@@ -149,7 +148,7 @@ body.no-scroll {
 
 .back-to-landing-button {
   padding: 12px 24px;
-  background: #000000;
+  background: rgba(0, 0, 0, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 8px;
   color: white;
@@ -158,45 +157,35 @@ body.no-scroll {
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .back-to-landing-button:hover {
   background: #222222;
   border-color: rgba(255, 255, 255, 0.5);
-  transform: translateY(-2px);
+  transform: translateX(-50%);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .phone-container {
-  width: 375px;
-  height: 812px;
-  background: #1a1a1a;
-  border-radius: 40px;
-  padding: 8px;
-  box-shadow: 
-    0 20px 60px rgba(0, 0, 0, 0.4),
-    inset 0 2px 6px rgba(255, 255, 255, 0.1);
+  width: 100%;
+  height: 100vh;
+  background: #000;
   position: relative;
   overflow: hidden;
-}
-
-.phone-container::before {
-  content: '';
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 35px;
-  height: 5px;
-  background: #333;
-  border-radius: 3px;
-  z-index: 10;
 }
 
 .phone-screen {
   width: 100%;
   height: 100%;
   background: #000;
-  border-radius: 32px;
   overflow: hidden;
   position: relative;
 }
@@ -208,6 +197,52 @@ body.no-scroll {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+/* App Header Styles - Common for all app components */
+.app-header {
+  display: flex;
+  align-items: center;
+  padding: 14px 16px;
+  background: #007AFF;
+  color: white;
+  min-height: 56px;
+  position: relative;
+}
+
+.app-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 500;
+  color: white;
+  flex: 1;
+  text-align: center;
+}
+
+/* Common Back Button Style */
+.app-back-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  min-height: 40px;
+}
+
+.app-back-button:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .App-title {

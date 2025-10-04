@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1000" height="500" viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1000" height="500" fill="#ffffff"/>
+  
+  <!-- Title -->
+  <text x="500" y="30" font-family="Arial" font-size="24" text-anchor="middle" fill="#007AFF" font-weight="bold">
+    Bảng Tuần Hoàn Các Nguyên Tố Hóa Học
+  </text>
+  
+  <!-- Periodic Table Grid -->
+  <g transform="translate(50, 70)">
+    <!-- Table Outline -->
+    <rect width="900" height="380" fill="none" stroke="#333333" stroke-width="2"/>
+    
+    <!-- Group Labels -->
+    <text x="45" y="-20" font-family="Arial" font-size="14" text-anchor="middle">1</text>
+    <text x="135" y="-20" font-family="Arial" font-size="14" text-anchor="middle">2</text>
+    <text x="225" y="-20" font-family="Arial" font-size="14" text-anchor="middle">3</text>
+    <text x="315" y="-20" font-family="Arial" font-size="14" text-anchor="middle">4</text>
+    <text x="405" y="-20" font-family="Arial" font-size="14" text-anchor="middle">5</text>
+    <text x="495" y="-20" font-family="Arial" font-size="14" text-anchor="middle">6</text>
+    <text x="585" y="-20" font-family="Arial" font-size="14" text-anchor="middle">7</text>
+    <text x="675" y="-20" font-family="Arial" font-size="14" text-anchor="middle">8</text>
+    <text x="765" y="-20" font-family="Arial" font-size="14" text-anchor="middle">9</text>
+    <text x="855" y="-20" font-family="Arial" font-size="14" text-anchor="middle">10</text>
+    
+    <!-- Element Boxes -->
+    <!-- H -->
+    <rect x="0" y="0" width="90" height="76" fill="#c9e5fb" stroke="#333333"/>
+    <text x="15" y="25" font-family="Arial" font-size="14" fill="#333333">1</text>
+    <text x="45" y="50" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold">H</text>
+    
+    <!-- He -->
+    <rect x="810" y="0" width="90" height="76" fill="#fcf9c6" stroke="#333333"/>
+    <text x="825" y="25" font-family="Arial" font-size="14" fill="#333333">2</text>
+    <text x="855" y="50" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold">He</text>
+    
+    <!-- Li -->
+    <rect x="0" y="76" width="90" height="76" fill="#ffb1b1" stroke="#333333"/>
+    <text x="15" y="101" font-family="Arial" font-size="14" fill="#333333">3</text>
+    <text x="45" y="126" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold">Li</text>
+    
+    <!-- Be -->
+    <rect x="90" y="76" width="90" height="76" fill="#ffdbae" stroke="#333333"/>
+    <text x="105" y="101" font-family="Arial" font-size="14" fill="#333333">4</text>
+    <text x="135" y="126" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold">Be</text>
+    
+    <!-- B -->
+    <rect x="450" y="76" width="90" height="76" fill="#e9c5fb" stroke="#333333"/>
+    <text x="465" y="101" font-family="Arial" font-size="14" fill="#333333">5</text>
+    <text x="495" y="126" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold">B</text>
+    
+    <!-- C -->
+    <rect x="540" y="76" width="90" height="76" fill="#c9e5fb" stroke="#333333"/>
+    <text x="555" y="101" font-family="Arial" font-size="14" fill="#333333">6</text>
+    <text x="585" y="126" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold">C</text>
+    
+    <!-- N -->
+    <rect x="630" y="76" width="90" height="76" fill="#c9e5fb" stroke="#333333"/>
+    <text x="645" y="101" font-family="Arial" font-size="14" fill="#333333">7</text>
+    <text x="675" y="126" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold">N</text>
+    
+    <!-- O -->
+    <rect x="720" y="76" width="90" height="76" fill="#c9e5fb" stroke="#333333"/>
+    <text x="735" y="101" font-family="Arial" font-size="14" fill="#333333">8</text>
+    <text x="765" y="126" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold">O</text>
+  </g>
+  
+  <!-- Legend -->
+  <rect x="100" y="450" width="800" height="30" fill="none" stroke="#333333" stroke-width="1"/>
+  <text x="500" y="470" font-family="Arial" font-size="14" text-anchor="middle" fill="#333333" font-style="italic">
+    * Gợi ý mật khẩu có thể liên quan đến các số nguyên tử và ký hiệu của các nguyên tố
+  </text>
+</svg>

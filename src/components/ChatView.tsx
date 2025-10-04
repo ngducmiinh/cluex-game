@@ -37,118 +37,111 @@ const ChatView: React.FC<ChatViewProps> = ({ chatId, onBack }) => {
         messages: [
           {
             id: 1,
-            sender: 'Tường Vy',
-            text: 'Tường Vy tao vừa xem danh sách công bố giải thưởng. Tại sao lại tao không có trong danh sách giải cuộc thi mà cả team lại yêu cầu mình nguời khác?',
+            sender: 'Me',
+            text: 'Tường Vy, tao vừa xem danh sách công bố giải thưởng. Tại sao tên tao không có trong danh sách giải cuộc thi mà cả team lại vẫn đủ những người khác?',
             time: '22:39',
-            isMe: false
+            isMe: true
           },
           {
             id: 2,
-            sender: 'Me',
+            sender: 'Tường Vy',
             text: 'Hả? Gì cơ? M đang nói gì thế?',
             time: '22:40',
-            isMe: true
+            isMe: false
           },
           {
             id: 3,
-            sender: 'Tường Vy',
-            text: 'M đúng giả vờ giả vị ở đây với t. T nhất định phải làm rõ chuyện này',
-            time: '22:41',
-            isMe: false
-          },
-          {
-            id: 4,
             sender: 'Me',
-            text: 'Quân, bình tĩnh. Có nhầm lần hay sai sót gì đây thôi. T cũng không biết chuyện này. T vừa mới xem.',
-            time: '22:42',
+            text: 'M đừng giả vờ giả vịt ở đây với t. T nhất định phải làm rõ chuyện này.',
+            time: '22:41',
             isMe: true
           },
           {
-            id: 5,
+            id: 4,
             sender: 'Tường Vy',
-            text: 'Nhầm làm? M nghĩ tao ngây thơ à? T là người đưa ra ý tưởng chính, vài trò chuyện nọm quan trọng cùng là t. Chấy mở hình, làm toàn bộ số liệu. Còn bọn m gì đã được trao phần thưởng thì còn m. Trong khi t mất tất cả công sức, t đã để trễn khai. Bờ là những gì bọn m gây dựng lên từ thành công t. Rõ ràng thường tôi giả bào nhiều? Hóc bộng 100%, việc làm gì thấm m?',
-            time: '22:43',
+            text: 'Quân, bình tĩnh. Có nhầm lẫn hay sai sót gì đó đây thôi. T cũng không biết chuyện này. T vừa mới xem.',
+            time: '22:42',
             isMe: false
+          },
+          {
+            id: 5,
+            sender: 'Me',
+            text: 'Nhầm lẫn? M nghĩ tao ngây thơ à? T là người đưa ra ý tưởng chính, vai trò chuyên môn quan trọng cũng là t, chạy mô hình, làm toàn bộ số liệu. Bọn m làm được những gì, chỉ ngồi hả hê sau lưng, còn chấm điểm và ghi chú khi đã có tất cả từ tao rồi. Đến lúc nhận giải thì lại chỉ có mấy đứa bọn m đứng tên. Giải thưởng trị giá bao nhiêu? Học bổng 100%, việc làm ở Hikari Global Innovation. Tao đã thức trắng bao đêm. Mày nghĩ tao ngây thơ đến mức tin vào lời nói suông đó à? Cái giải thưởng này chỉ t mới xứng đáng. Mày, với tư cách nhóm trưởng, không có trách nhiệm gì sao?',
+            time: '22:43',
+            isMe: true
           },
           {
             id: 6,
             sender: 'Tường Vy',
-            text: 'Innovation. Tao đã thừa trang bào đem. Mày vợn tao nộm nây. Hóc chung về lời nói sướng dó à? Cái giai thưởng nây chỉ t mới xứng đáng. Mày, với tư cách nhanh trưởng, không có trách nhiệm gì sau?',
+            text: 'Sao m lại đổ lỗi cho t? Đây là quyết định của hội đồng. T đâu có quyền. T cũng không rõ chuyện này như m mà lúc...',
             time: '22:44',
             isMe: false
           },
           {
             id: 7,
             sender: 'Me',
-            text: 'Sao m lại nói tôi vậy. Đây là lần đầu của hôi đồng, T đầu có quyền. T cũng sẽ chuyện là biết về những này.',
+            text: 'Quyết định của ai? Mày, Quỳnh Anh và thằng Tùng đã thỏa thuận với nhau? Bọn mấy định ăn cắp công lao của tao trắng trợn như thế à? Đừng có rở vở trò hèn hạ tùy tiện, quá muộn rồi.',
             time: '22:45',
             isMe: true
           },
           {
             id: 8,
             sender: 'Tường Vy',
-            text: 'Quyết định của ai? Mày, Quynh Anh và thằng Tùng chứ m? Tại tao không biết chuyện? Bọn mây định ăn cắp công lao của tao trong gì không mày thì m có từ và có gì vô tôi huy tự tế, quá muộn rồi',
+            text: 'Ko phải thế! Bọn t ko làm chuyện đó. Bọn mình là một nhóm mà. Dù ko có tên trong danh sách thì cống hiến của m vẫn ở đó, m làm thế thì mọi thứ sẽ nổ tung mất. Giải thưởng này không phải do 1 người mà công sức nhiều người mới có được, nếu bẻ gãy m, bọn t cũng ko muốn mọi chuyện đi đến bước đó đâu đừng...',
             time: '22:46',
             isMe: false
           },
           {
             id: 9,
             sender: 'Me',
-            text: 'Kô phải thế! Bọn t ko làm chuyện đó. Bọn mình là một nhóm mà. Du tao đẻ tên m trong danh sách những công sức của m thì vẫn á đó, m làm thế thì có thấy này mọi người cùng nhau quy dung sẻ cô đỗng đó bé, m cũng có những cổ chuyển đi đền buộc đô đâu dung ko?',
+            text: 'Đóng góp của tao ko có tên trong danh sách thì còn có ý nghĩa gì? Giải thưởng này là học bổng toàn phần, là cơ hội làm việc của t, những thứ mà đến cả đi ngủ t cũng mơ thấy. Tất cả đều tan biến.',
             time: '22:47',
             isMe: true
           },
           {
             id: 10,
             sender: 'Tường Vy',
-            text: 'Đừng gọp các tao ko có tên trong danh sách thì con có ý nghĩa gì? Giai thưởng nây là học tập của tao. Và như vậy có tổ vức của t, những thứ mà đem cả đỗ ngà t cũng như trực.',
+            text: 'M có biết giải thưởng lần này có thể cứu cuộc đời t ko, biết nó quan trọng với t đến mức nào ko? Bao nhiêu cố gắng của t lại để bọn mày hưởng hết à?',
             time: '22:48',
             isMe: false
           },
           {
             id: 11,
-            sender: 'Me',
-            text: 'M có biết giải thưởng lần nây có mấy cái được đội t ko, biết thó quan trọng với t đến mức nào không. T đáng tại nếu như t lại để bọn mây hưởng hết à?',
+            sender: 'Tường Vy',
+            text: 'Quân, hãy bình tĩnh lại, đừng làm gì trong lúc nóng giận. T sẽ gọi cho thầy giáo, xin thầy một cuộc hẹn. Cả nhóm mình sẽ cùng gặp thầy để làm rõ mọi chuyện. Được không?',
             time: '22:49',
-            isMe: true
+            isMe: false
           },
           {
             id: 12,
-            sender: 'Tường Vy',
-            text: 'Quân, hay binh tình lại, đừng làm gì trong lúc nóng giận. T sẽ gọi cho thầy giáo, xin thêm một cuộc họp, t muốn có cơ hội mì cũng góp thây để làm rõ mọi chuyện. Được không?',
+            sender: 'Me',
+            text: 'Gặp để làm gì? Để các người lấp liếm mọi chuyện à? Tao đã thu thập tất cả bằng chứng công sức t bỏ ra bấy lâu nay cho cuộc thi này. T sẽ vạch trần tất cả, không có cơ hội cho các người bao che đâu.',
             time: '22:50',
-            isMe: false
+            isMe: true
           },
           {
             id: 13,
-            sender: 'Me',
-            text: 'Gặp để làm gì? Bé các nguời tụp kiểm mọi thứng vì tao có thi thuật lại bảo tụp để t cô cơ hội thương. Cái j cũng tại. Tao và cuộc thi nây. T sẽ xách trần tất cả, không có chỗ nào cho group. Hà',
+            sender: 'Tường Vy',
+            text: 'M đừng manh động. M sẽ phá hủy tất cả, không chỉ của bọn t mà còn của m nữa. Chúng ta sẽ báo cáo lên trên và giải quyết được mà, hãy ngồi lại cùng nhau bàn bạc chút được ko, đừng nóng vội mà làm liều lúc này.',
             time: '22:51',
-            isMe: true
+            isMe: false
           },
           {
             id: 14,
-            sender: 'Tường Vy',
-            text: 'M đúng mạnh đồng. M sẽ phá hủy tất cả, không chí của mình nào cua m nưa. Chúng ta sẽ bảo cáo lén trên và giải thích được mà, làm rõ công chức của một bận các chút được ko, đừng nằng vòi mà làm líu lúc nây.',
-            time: '22:52',
-            isMe: false
-          },
-          {
-            id: 15,
             sender: 'Me',
-            text: 'Phá hay? Lòng tin của tao đã bị phá hủy bởi nhóm mài, là thứ có thể sử dụng gọi bọn có tầm nhìn có thể áp dụng với mà đón nhận. T sẽ tự lấy lại công bằng và những thứ xứng đáng về t',
-            time: '22:53',
+            text: 'Phá hủy? Lòng tin của tao đã bị phá hủy rồi. Ngày mai, lá thư tố cáo sẽ được gửi lên thẳng tới Hội đồng. Hãy chuẩn bị mà đón nhận. T sẽ tự lấy lại công bằng và những thứ xứng đáng thuộc về t.',
+            time: '22:52',
             isMe: true
           },
           {
-            id: 16,
+            id: 15,
             sender: 'Tường Vy',
-            text: 'Đừng như thế mà Quân, chúng ta nói chuyện bàn hết đi',
-            time: '22:54',
+            text: 'Đừng như thế mà Quân, chúng ta nói chuyện bàn bạc lại được không?',
+            time: '22:53',
             isMe: false
           },
           {
-            id: 17,
+            id: 16,
             sender: 'Tường Vy',
             text: '☎️ Cuộc gọi nhỡ',
             time: '23:16',
@@ -156,7 +149,7 @@ const ChatView: React.FC<ChatViewProps> = ({ chatId, onBack }) => {
             type: 'missed_call' as const
           },
           {
-            id: 18,
+            id: 17,
             sender: 'Tường Vy',
             text: '☎️ Cuộc gọi nhỡ',
             time: '23:42',
@@ -184,7 +177,7 @@ const ChatView: React.FC<ChatViewProps> = ({ chatId, onBack }) => {
   };
 
   const chatData = getChatData(chatId);
-  const [messages, setMessages] = useState<Message[]>(chatData.messages);
+  const [messages, setMessages] = useState<Message[]>(chatData.messages as Message[]);
   const [newMessage, setNewMessage] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -226,15 +219,11 @@ const ChatView: React.FC<ChatViewProps> = ({ chatId, onBack }) => {
 
   return (
     <div className="chat-view">
-      <div className="chat-header">
-        <button className="back-button" onClick={onBack}>
+      <div className="app-header">
+        <button className="app-back-button" onClick={onBack}>
           <span>←</span>
         </button>
-        <div className="chat-info">
-          <div className="contact-details">
-            <h3>{chatData.name}</h3>
-          </div>
-        </div>
+        <h2>{chatData.name}</h2>
         <div className="header-actions">
           <button className="action-button" onClick={handleCallClick}>📞</button>
         </div>
@@ -254,7 +243,7 @@ const ChatView: React.FC<ChatViewProps> = ({ chatId, onBack }) => {
               {message.type === 'missed_call' && (
                 <div className="call-message">
                   <div className="call-info">
-                    <span className="call-icon">☎️</span>
+                    <span className="call-icon">📞</span>
                     <span className="call-text">Cuộc gọi nhỡ</span>
                   </div>
                   <button className="call-back-button" onClick={handleCallClick}>
