@@ -3,6 +3,13 @@
   background-color: rgba(0, 0, 0, 0.8);
   border: 1px solid #555;
   border-radius: 10px;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.success-box::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 .success-title {
@@ -80,11 +87,11 @@
   align-items: center;
   width: 100%;
   background-color: rgba(30, 30, 30, 0.7);
-  padding: 8px 5px; /* Giảm padding */
-  border-radius: 8px; /* Giảm border radius */
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5); /* Giảm shadow */
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s;
-  margin-bottom: 0;
+  margin-bottom: 20px;
 }
 
 .evidence-image-container:hover {
@@ -263,16 +270,13 @@
 /* Styles cho confetti */
 .confetti-container {
   position: fixed;
-  top: -20px;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 150;
-  pointer-events: none;
   overflow: hidden;
-  will-change: transform;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
+  pointer-events: none;
+  z-index: 10;
 }
 
 .confetti {

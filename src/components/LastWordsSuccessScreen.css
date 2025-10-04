@@ -3,6 +3,13 @@
   background-color: rgba(0, 0, 0, 0.8);
   border: 1px solid #555;
   border-radius: 10px;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.success-box::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 .success-title {
@@ -17,6 +24,9 @@
   width: 80%;
   max-width: 1000px;
   margin: 0 auto;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  padding: 20px;
 }
 
 /* Media query cho điện thoại */
@@ -45,6 +55,7 @@
   .wide-container {
     padding: 10px;
     width: 95%;
+    max-height: calc(100vh - 80px);
   }
   
   .evidence-images {
@@ -111,8 +122,11 @@
 .evidence-images {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 20px;
   margin: 0;
+  max-height: none;
+  overflow-y: visible;
+  padding-bottom: 20px;
 }
 
 .evidence-image-container {
@@ -174,7 +188,7 @@
 }
 
 .confetti {
-  position: absolute;
+  position: fixed;
   width: 5px;
   height: 20px;
   background-color: #f00;
@@ -184,6 +198,8 @@
   will-change: transform, opacity;
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
+  z-index: 50;
+  pointer-events: none;
 }
 
 .confetti-circle {
@@ -268,11 +284,12 @@
   background-color: rgba(0, 0, 0, 0.9);
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   z-index: 1000;
   backdrop-filter: blur(5px);
   overflow-y: auto;
-  padding: 60px 20px 20px 20px; /* Thêm padding phía trên để tránh nút đóng che nội dung */
+  overflow-x: hidden;
+  padding: 60px 20px 40px 20px; /* Increased padding for better mobile view */
   box-sizing: border-box;
 }
 
@@ -281,6 +298,9 @@
   width: 90%;
   max-width: 1200px;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .image-popup {
@@ -298,18 +318,33 @@
   margin: 0 auto;
 }
 
+.popup-caption-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 15px;
+}
+
 .popup-caption {
   color: #ffffff;
   background-color: rgba(0, 0, 0, 0.7);
   padding: 12px 15px;
   border-radius: 8px;
   text-align: center;
-  margin-top: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   font-size: 18px;
   max-width: 90%;
   margin-left: auto;
   margin-right: auto;
   border-left: 4px solid #d9534f;
+}
+
+.popup-caption.small-caption {
+  font-size: 14px;
+  padding: 8px 12px;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .close-popup-button {
@@ -346,16 +381,13 @@
 /* Styles cho confetti */
 .confetti-container {
   position: fixed;
-  top: -20px;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 150;
-  pointer-events: none;
   overflow: hidden;
-  will-change: transform;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
+  pointer-events: none;
+  z-index: 10;
 }
 
 .success-overlay {
@@ -559,4 +591,19 @@
   .success-content {
     gap: 8px;
   }
+}
+
+/* Hide scrollbar while maintaining functionality */
+.wide-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* For Firefox */
+.wide-container {
+  scrollbar-width: none;
+}
+
+/* For IE and Edge */
+.wide-container {
+  -ms-overflow-style: none;
 }

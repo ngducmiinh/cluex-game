@@ -154,15 +154,17 @@ Cao Quốc Bảo chính là hung thủ. Bảo và Chi tranh cãi khi gặp nhau 
               className="image-popup"
               onClick={(e) => e.stopPropagation()}
             />
-            {popupImage.includes('1.png') && (
-              <p className="popup-caption">Cao Thu Phương là giáo viên dạy văn, không sai lỗi dấu câu cơ bản</p>
-            )}
-            {popupImage.includes('2.png') && (
-              <p className="popup-caption">Khám nghiệm tử thi chứng minh hung thủ thuận tay trái, tay thuận có lực mạnh hơn tay không thuận.</p>
-            )}
-            {popupImage.includes('3.png') && (
-              <p className="popup-caption">Người duy nhất dùng tay trái</p>
-            )}
+            <div className="popup-caption-container">
+              {popupImage.includes('1.png') && (
+                <p className="popup-caption">Cao Thu Phương là giáo viên dạy văn, không sai lỗi dấu câu cơ bản</p>
+              )}
+              {popupImage.includes('2.png') && (
+                <p className="popup-caption">Khám nghiệm tử thi chứng minh hung thủ thuận tay trái, tay thuận có lực mạnh hơn tay không thuận.</p>
+              )}
+              {popupImage.includes('3.png') && (
+                <p className="popup-caption small-caption">Người duy nhất dùng tay trái</p>
+              )}
+            </div>
             <button 
               className="close-popup-button"
               onClick={() => setPopupImage(null)}
