@@ -23,18 +23,29 @@ const GolfCaseSuccessScreen: React.FC<GolfCaseSuccessScreenProps> = ({ onBackToL
   // Tạo hiệu ứng confetti khi component được render
   useEffect(() => {
     // Để hiệu ứng xuất hiện mượt mà sau khi component đã render
-    const timer = setTimeout(() => {
+    const showTimer = setTimeout(() => {
       setShowConfetti(true);
+      
+      // Để confetti tiếp tục rơi trong 14 giây
+      const hideConfettiTimer = setTimeout(() => {
+        setShowConfetti(false);
+      }, 14000);
+      
+      return () => {
+        clearTimeout(hideConfettiTimer);
+      };
     }, 300);
     
-    return () => clearTimeout(timer);
-  }, []);
+    return () => {
+      clearTimeout(showTimer);
+    };
+  }, []);  // Không có dependency để tránh re-render
 
   return (
     <div className="golf-case-screen">
       <div className="background-image" style={backgroundStyle}></div>
       
-      {/* Hiệu ứng confetti/băng rôn */}
+      {/* Hiệu ứng confetti */}
       {showConfetti && (
         <div className="confetti-container">
           {/* Băng rôn thẳng */}
@@ -80,16 +91,7 @@ const GolfCaseSuccessScreen: React.FC<GolfCaseSuccessScreenProps> = ({ onBackToL
             </div>
           ))}
         </div>
-      )}
-      
-      {/* Banner chúc mừng */}
-      {showConfetti && (
-        <div className="success-banner">
-          <span>Chúc mừng! Bạn đã phá án thành công!</span>
-        </div>
-      )}
-      
-      <div className="golf-case-container wide-container">
+      )}      <div className="golf-case-container wide-container">
         <div className="logo-section">
           <h1 className="main-title">Vụ Án Sân Golf</h1>
         </div>

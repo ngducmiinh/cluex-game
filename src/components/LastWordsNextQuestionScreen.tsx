@@ -28,9 +28,9 @@ const LastWordsNextQuestionScreen: React.FC<LastWordsNextQuestionScreenProps> = 
     setHasAnswered(true);
     if (selectedOption === correctAnswer) {
       setIsCorrect(true);
-      // Delay trước khi chuyển sang màn hình thành công
+      // Tiếp tục đến màn hình thành công
       setTimeout(() => {
-        onSolveCase();
+        onSolveCase(); // Chuyển đến màn hình success
       }, 2000);
     }
   };
@@ -41,7 +41,7 @@ const LastWordsNextQuestionScreen: React.FC<LastWordsNextQuestionScreenProps> = 
       <div className="last-words-container wide-container">
         <div className="logo-section">
           <button className="back-button" onClick={onBackToLanding}>
-            ← Quay lại
+            ←
           </button>
           <h1 className="main-title">Vụ Án Lời Trăn Trối</h1>
         </div>
@@ -100,7 +100,7 @@ const LastWordsNextQuestionScreen: React.FC<LastWordsNextQuestionScreenProps> = 
           {isCorrect && (
             <div className="success-message">
               <p>Chính xác! Người hàng xóm chính là hung thủ!</p>
-              <p>Đang chuyển đến màn hình giải thích...</p>
+              <p>Đang chuyển đến màn hình kết quả...</p>
             </div>
           )}
 

@@ -13,7 +13,7 @@ import GolfCaseScreen from './components/GolfCaseScreen';
 import GolfCaseNextQuestionScreen from './components/GolfCaseNextQuestionScreen';
 import GolfCaseSuccessScreen from './components/GolfCaseSuccessScreen';
 import LastWordsScreen from './components/LastWordsScreen';
-import LastWordsNextQuestionScreen from './components/LastWordsNextQuestionScreen';
+// LastWordsNextQuestionScreen removed - skipping to success directly
 import LastWordsSuccessScreen from './components/LastWordsSuccessScreen';
 import './App.css';
 
@@ -51,15 +51,12 @@ function App() {
     setCurrentApp('san-golf-success');
   };
   
-  // Xử lý khi trả lời đúng câu hỏi đầu tiên của Lời Trăn Trối
+  // Xử lý khi trả lời đúng câu hỏi của Lời Trăn Trối (trực tiếp đến màn hình thành công)
   const handleLastWordsCorrectAnswer = () => {
-    setCurrentApp('last-words-next-question');
-  };
-  
-  // Xử lý khi phá án Lời Trăn Trối thành công
-  const handleLastWordsSolveCase = () => {
     setCurrentApp('last-words-success');
   };
+  
+  // handleLastWordsSolveCase removed - skipping to success directly
 
   const handleUnlock = () => {
     setCurrentScreen('home');
@@ -157,13 +154,7 @@ function App() {
           />
         );
         
-      case 'last-words-next-question':
-        return (
-          <LastWordsNextQuestionScreen 
-            onBackToLanding={handleBackToLanding}
-            onSolveCase={handleLastWordsSolveCase}
-          />
-        );
+      // Case 'last-words-next-question' removed - skipping to success directly
         
       case 'last-words-success':
         return (

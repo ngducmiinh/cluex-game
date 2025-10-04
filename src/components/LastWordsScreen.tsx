@@ -11,7 +11,8 @@ const LastWordsScreen: React.FC<LastWordsScreenProps> = ({ onBackToLanding, onCo
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [hasAnswered, setHasAnswered] = useState<boolean>(false);
   const [isCorrect, setIsCorrect] = useState<boolean>(false);
-  const correctAnswer = 1; // Giả sử đáp án đúng là lựa chọn 1
+  // Hai đáp án đúng là "Biên bản khám nghiệm tử thi" và "Lời khai của Cao Quốc Bảo"
+  const correctAnswers = [5, 6];
   
   // Sử dụng ảnh background từ assets
   const backgroundStyle = {
@@ -22,11 +23,16 @@ const LastWordsScreen: React.FC<LastWordsScreenProps> = ({ onBackToLanding, onCo
 
   const handleOptionSelect = (optionIndex: number) => {
     setSelectedOption(optionIndex);
+    // Reset error state when selecting a new option
+    if (hasAnswered) {
+      setHasAnswered(false);
+      setIsCorrect(false);
+    }
   };
 
   const checkAnswer = () => {
     setHasAnswered(true);
-    if (selectedOption === correctAnswer) {
+    if (selectedOption !== null && correctAnswers.includes(selectedOption)) {
       setIsCorrect(true);
       // Delay trước khi chuyển sang câu hỏi tiếp theo
       setTimeout(() => {
@@ -41,13 +47,13 @@ const LastWordsScreen: React.FC<LastWordsScreenProps> = ({ onBackToLanding, onCo
       <div className="last-words-container wide-container">
         <div className="logo-section">
           <button className="back-button" onClick={onBackToLanding}>
-            ← Quay lại
+            ←
           </button>
           <h1 className="main-title">Vụ Án Lời Trăn Trối</h1>
         </div>
 
         <div className="question-box">
-          <h2 className="question-title">Vụ án bí ẩn về những lời trăn trối cuối cùng của nạn nhân. Bằng chứng nào có thể giúp bạn tìm ra hung thủ?</h2>
+          <h2 className="question-title">Bằng chứng nào giúp bạn tìm ra hung thủ?</h2>
           
           <div className="options-list">
             <div 
@@ -89,6 +95,56 @@ const LastWordsScreen: React.FC<LastWordsScreenProps> = ({ onBackToLanding, onCo
               </div>
               <div className="option-text">Bản ghi camera an ninh</div>
             </div>
+
+            <div 
+              className={`option-item ${selectedOption === 4 ? 'selected' : ''}`}
+              onClick={() => handleOptionSelect(4)}
+            >
+              <div className={`radio-button ${selectedOption === 4 ? 'selected' : ''}`}>
+                <div className="radio-inner"></div>
+              </div>
+              <div className="option-text">Thư đe dọa</div>
+            </div>
+
+            <div 
+              className={`option-item ${selectedOption === 5 ? 'selected' : ''}`}
+              onClick={() => handleOptionSelect(5)}
+            >
+              <div className={`radio-button ${selectedOption === 5 ? 'selected' : ''}`}>
+                <div className="radio-inner"></div>
+              </div>
+              <div className="option-text">Biên bản khám nghiệm tử thi</div>
+            </div>
+
+            <div 
+              className={`option-item ${selectedOption === 6 ? 'selected' : ''}`}
+              onClick={() => handleOptionSelect(6)}
+            >
+              <div className={`radio-button ${selectedOption === 6 ? 'selected' : ''}`}>
+                <div className="radio-inner"></div>
+              </div>
+              <div className="option-text">Lời khai của Cao Quốc Bảo</div>
+            </div>
+
+            <div 
+              className={`option-item ${selectedOption === 7 ? 'selected' : ''}`}
+              onClick={() => handleOptionSelect(7)}
+            >
+              <div className={`radio-button ${selectedOption === 7 ? 'selected' : ''}`}>
+                <div className="radio-inner"></div>
+              </div>
+              <div className="option-text">Lời khai của Cao Đức Dương</div>
+            </div>
+
+            <div 
+              className={`option-item ${selectedOption === 8 ? 'selected' : ''}`}
+              onClick={() => handleOptionSelect(8)}
+            >
+              <div className={`radio-button ${selectedOption === 8 ? 'selected' : ''}`}>
+                <div className="radio-inner"></div>
+              </div>
+              <div className="option-text">Lời khai của Cao Thu Phương</div>
+            </div>
           </div>
 
           {hasAnswered && !isCorrect && (
@@ -99,8 +155,8 @@ const LastWordsScreen: React.FC<LastWordsScreenProps> = ({ onBackToLanding, onCo
 
           {isCorrect && (
             <div className="success-message">
-              <p>Chính xác! Mẩu giấy ghi chú là manh mối quan trọng!</p>
-              <p>Đang chuyển đến câu hỏi tiếp theo...</p>
+              <p>Chính xác! {selectedOption === 5 ? "Biên bản khám nghiệm tử thi" : "Lời khai của Cao Quốc Bảo"} là manh mối quan trọng!</p>
+              <p>Chúc mừng bạn đã phá án thành công!</p>
             </div>
           )}
 

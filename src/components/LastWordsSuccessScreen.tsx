@@ -23,18 +23,29 @@ const LastWordsSuccessScreen: React.FC<LastWordsSuccessScreenProps> = ({ onBackT
   // Tạo hiệu ứng confetti khi component được render
   useEffect(() => {
     // Để hiệu ứng xuất hiện mượt mà sau khi component đã render
-    const timer = setTimeout(() => {
+    const showTimer = setTimeout(() => {
       setShowConfetti(true);
+      
+      // Để confetti tiếp tục rơi trong 14 giây
+      const hideConfettiTimer = setTimeout(() => {
+        setShowConfetti(false);
+      }, 14000);
+      
+      return () => {
+        clearTimeout(hideConfettiTimer);
+      };
     }, 300);
     
-    return () => clearTimeout(timer);
-  }, []);
+    return () => {
+      clearTimeout(showTimer);
+    };
+  }, []);  // Không có dependency để tránh re-render
 
   return (
     <div className="last-words-screen">
       <div className="background-image" style={backgroundStyle}></div>
       
-      {/* Hiệu ứng confetti/băng rôn */}
+      {/* Hiệu ứng confetti */}
       {showConfetti && (
         <div className="confetti-container">
           {/* Băng rôn thẳng */}
@@ -80,16 +91,7 @@ const LastWordsSuccessScreen: React.FC<LastWordsSuccessScreenProps> = ({ onBackT
             </div>
           ))}
         </div>
-      )}
-      
-      {/* Banner chúc mừng */}
-      {showConfetti && (
-        <div className="success-banner">
-          <span>Chúc mừng! Bạn đã phá án thành công!</span>
-        </div>
-      )}
-      
-      <div className="last-words-container wide-container">
+      )}      <div className="last-words-container wide-container">
         <div className="logo-section">
           <h1 className="main-title">Vụ Án Lời Trăn Trối</h1>
         </div>
@@ -99,25 +101,34 @@ const LastWordsSuccessScreen: React.FC<LastWordsSuccessScreenProps> = ({ onBackT
           
           <div className="success-content">
             <p className="story-text">
-              Người hàng xóm - ông Hoàng, đã lên kế hoạch giết hại nạn nhân vì một mâu thuẫn đất đai kéo dài nhiều năm. Trước khi qua đời, nạn nhân đã cố gắng để lại một manh mối bằng cách viết một mẩu giấy có vẻ như là lời trăn trối. Dòng chữ đầu tiên có vẻ như không liên quan: "Nơi hàng cây xanh, ánh sáng mặt trời". Tuy nhiên, nếu nhìn kỹ các chữ cái đầu tiên của mỗi từ sẽ tạo thành "NHXA", đó chính là từ viết tắt của "Người hàng xóm A". Nạn nhân không đủ thời gian để viết rõ ràng hơn, nhưng manh mối này đã giúp điều tra viên xác định được hung thủ chính là ông Hoàng - người hàng xóm sống ngay căn nhà thứ nhất bên cạnh.
-            </p>
+Cao Quốc Bảo chính là hung thủ. Bảo và Chi tranh cãi khi gặp nhau ở biệt thự, trong lúc căng thẳng, Chi đã vô tình tiết lộ việc để lại di thư trước khi đến. Cao Quốc Bảo khi ấy đã rất kích động, cùng với những bất mãn khi đã có suy nghĩ Chi lấy hết những gì đáng ra nên thuộc về hắn. 1 phút bốc đồng, 1 đời bốc cứt, Bảo đã ra tay sát hại Chi... Hắn hoảng loạn và sợ hãi khi nhận ra mình đã gây ra án mạng, Bảo bỏ chạy khỏi biệt thự như để chạy trốn hiện thực. Khi hắn ta tỉnh táo trở lại thì đã không còn kịp để trở lại hiện trường. Bạn nghĩ hắn ta sẽ hối hận vì đã gay ra tội lỗi hay sẽ hối hận vì đã không xử lý sạch sẽ?             </p>
             <div className="evidence-images">
               <div className="evidence-image-container">
                 <img 
-                  src={`${process.env.PUBLIC_URL}/images/lastwords/note.jpg`}
+                  src={`${process.env.PUBLIC_URL}/images/lastwords/1.png`}
                   className="evidence-image"
-                  onClick={() => setPopupImage(`${process.env.PUBLIC_URL}/images/lastwords/note.jpg`)}
-                  alt="Mẩu giấy ghi chú của nạn nhân"
+                  onClick={() => setPopupImage(`${process.env.PUBLIC_URL}/images/lastwords/1.png`)}
+                  alt="Biên bản khám nghiệm tử thi"
                 />
                 <p className="image-hint">Nhấn ảnh để xem rõ hơn</p>
               </div>
               
               <div className="evidence-image-container">
                 <img 
-                  src={`${process.env.PUBLIC_URL}/images/lastwords/neighbor.jpg`}
+                  src={`${process.env.PUBLIC_URL}/images/lastwords/2.png`}
                   className="evidence-image"
-                  onClick={() => setPopupImage(`${process.env.PUBLIC_URL}/images/lastwords/neighbor.jpg`)}
-                  alt="Bằng chứng người hàng xóm"
+                  onClick={() => setPopupImage(`${process.env.PUBLIC_URL}/images/lastwords/2.png`)}
+                  alt="Lời khai của Cao Quốc Bảo"
+                />
+                <p className="image-hint">Nhấn ảnh để xem rõ hơn</p>
+              </div>
+
+              <div className="evidence-image-container">
+                <img 
+                  src={`${process.env.PUBLIC_URL}/images/lastwords/3.png`}
+                  className="evidence-image"
+                  onClick={() => setPopupImage(`${process.env.PUBLIC_URL}/images/lastwords/3.png`)}
+                  alt="Mẩu giấy ghi chú"
                 />
                 <p className="image-hint">Nhấn ảnh để xem rõ hơn</p>
               </div>
@@ -143,6 +154,15 @@ const LastWordsSuccessScreen: React.FC<LastWordsSuccessScreenProps> = ({ onBackT
               className="image-popup"
               onClick={(e) => e.stopPropagation()}
             />
+            {popupImage.includes('1.png') && (
+              <p className="popup-caption">Cao Thu Phương là giáo viên dạy văn, không sai lỗi dấu câu cơ bản</p>
+            )}
+            {popupImage.includes('2.png') && (
+              <p className="popup-caption">Khám nghiệm tử thi chứng minh hung thủ thuận tay trái, tay thuận có lực mạnh hơn tay không thuận.</p>
+            )}
+            {popupImage.includes('3.png') && (
+              <p className="popup-caption">Người duy nhất dùng tay trái</p>
+            )}
             <button 
               className="close-popup-button"
               onClick={() => setPopupImage(null)}

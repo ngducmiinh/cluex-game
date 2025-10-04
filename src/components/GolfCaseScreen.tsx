@@ -11,19 +11,28 @@ const GolfCaseScreen: React.FC<GolfCaseScreenProps> = ({
   onBackToLanding,
   onCorrectAnswer
 }) => {
-  const [selectedOption, setSelectedOption] = useState<string>('');
-  const [showError, setShowError] = useState<boolean>(false);
+  const [selectedOption, setSelectedOption] = useState<number | null>(null);
+  const [hasAnswered, setHasAnswered] = useState<boolean>(false);
+  const [isCorrect, setIsCorrect] = useState<boolean>(false);
+  const correctAnswer = 2; // Đáp án đúng là 'ban-ghi-cuoc-goi', index 2
   
-  const handleOptionSelect = (option: string) => {
-    setSelectedOption(option);
-    setShowError(false);
+  const handleOptionSelect = (optionIndex: number) => {
+    setSelectedOption(optionIndex);
+    // Reset error state when selecting a new option
+    if (hasAnswered) {
+      setHasAnswered(false);
+      setIsCorrect(false);
+    }
   };
 
-  const handleContinue = () => {
-    if (selectedOption === 'ban-ghi-cuoc-goi') {
-      onCorrectAnswer(); // Chuyển sang câu hỏi tiếp theo khi đáp án đúng
-    } else {
-      setShowError(true); // Hiển thị thông báo lỗi khi đáp án sai
+  const checkAnswer = () => {
+    setHasAnswered(true);
+    if (selectedOption === correctAnswer) {
+      setIsCorrect(true);
+      // Delay trước khi chuyển sang câu hỏi tiếp theo
+      setTimeout(() => {
+        onCorrectAnswer();
+      }, 2000);
     }
   };
 
@@ -40,7 +49,7 @@ const GolfCaseScreen: React.FC<GolfCaseScreenProps> = ({
       <div className="golf-case-container">
         <div className="logo-section">
           <button className="back-button" onClick={onBackToLanding}>
-            ← Quay lại
+            ←
           </button>
           <h1 className="main-title">Vụ Án Sân Golf</h1>
         </div>
@@ -49,59 +58,83 @@ const GolfCaseScreen: React.FC<GolfCaseScreenProps> = ({
           <h2 className="question-title">Bằng chứng nào giúp bạn tìm ra hung thủ?</h2>
           
           <div className="options-list">
-            <div className="option-item" onClick={() => handleOptionSelect('bai-bao')}>
-              <div className={`radio-button ${selectedOption === 'bai-bao' ? 'selected' : ''}`}>
+            <div 
+              className={`option-item ${selectedOption === 0 ? 'selected' : ''}`}
+              onClick={() => handleOptionSelect(0)}
+            >
+              <div className={`radio-button ${selectedOption === 0 ? 'selected' : ''}`}>
                 <div className="radio-inner"></div>
               </div>
-              <span className="option-text">Bài báo</span>
+              <div className="option-text">Bài báo</div>
             </div>
             
-            <div className="option-item" onClick={() => handleOptionSelect('anh-hien-truong')}>
-              <div className={`radio-button ${selectedOption === 'anh-hien-truong' ? 'selected' : ''}`}>
+            <div 
+              className={`option-item ${selectedOption === 1 ? 'selected' : ''}`}
+              onClick={() => handleOptionSelect(1)}
+            >
+              <div className={`radio-button ${selectedOption === 1 ? 'selected' : ''}`}>
                 <div className="radio-inner"></div>
               </div>
-              <span className="option-text">Ảnh hiện trường</span>
+              <div className="option-text">Ảnh hiện trường</div>
             </div>
             
-            <div className="option-item" onClick={() => handleOptionSelect('ban-ghi-cuoc-goi')}>
-              <div className={`radio-button ${selectedOption === 'ban-ghi-cuoc-goi' ? 'selected' : ''}`}>
+            <div 
+              className={`option-item ${selectedOption === 2 ? 'selected' : ''}`}
+              onClick={() => handleOptionSelect(2)}
+            >
+              <div className={`radio-button ${selectedOption === 2 ? 'selected' : ''}`}>
                 <div className="radio-inner"></div>
               </div>
-              <span className="option-text">Bản ghi cuộc gọi với 113</span>
+              <div className="option-text">Bản ghi cuộc gọi với 113</div>
             </div>
             
-            <div className="option-item" onClick={() => handleOptionSelect('thu-luat-su')}>
-              <div className={`radio-button ${selectedOption === 'thu-luat-su' ? 'selected' : ''}`}>
+            <div 
+              className={`option-item ${selectedOption === 3 ? 'selected' : ''}`}
+              onClick={() => handleOptionSelect(3)}
+            >
+              <div className={`radio-button ${selectedOption === 3 ? 'selected' : ''}`}>
                 <div className="radio-inner"></div>
               </div>
-              <span className="option-text">Thư của luật sư</span>
+              <div className="option-text">Thư của luật sư</div>
             </div>
             
-            <div className="option-item" onClick={() => handleOptionSelect('bao-cao-hien-truong')}>
-              <div className={`radio-button ${selectedOption === 'bao-cao-hien-truong' ? 'selected' : ''}`}>
+            <div 
+              className={`option-item ${selectedOption === 4 ? 'selected' : ''}`}
+              onClick={() => handleOptionSelect(4)}
+            >
+              <div className={`radio-button ${selectedOption === 4 ? 'selected' : ''}`}>
                 <div className="radio-inner"></div>
               </div>
-              <span className="option-text">Báo cáo hiện trường</span>
+              <div className="option-text">Báo cáo hiện trường</div>
             </div>
             
-            <div className="option-item" onClick={() => handleOptionSelect('loi-khai')}>
-              <div className={`radio-button ${selectedOption === 'loi-khai' ? 'selected' : ''}`}>
+            <div 
+              className={`option-item ${selectedOption === 5 ? 'selected' : ''}`}
+              onClick={() => handleOptionSelect(5)}
+            >
+              <div className={`radio-button ${selectedOption === 5 ? 'selected' : ''}`}>
                 <div className="radio-inner"></div>
               </div>
-              <span className="option-text">Lời khai của Park Tùng Lâm</span>
+              <div className="option-text">Lời khai của Park Tùng Lâm</div>
             </div>
           </div>
           
-          {showError && (
+          {hasAnswered && !isCorrect && (
             <div className="error-message">
               Đáp án chưa đúng, vui lòng chọn lại!
             </div>
           )}
 
+          {isCorrect && (
+            <div className="success-message">
+              <p>Chính xác! Bản ghi cuộc gọi chính là manh mối quan trọng!</p>
+              <p>Đang chuyển đến câu hỏi tiếp theo...</p>
+            </div>
+          )}
+
           <button 
-            className={`continue-button ${selectedOption ? 'enabled' : ''}`} 
-            onClick={handleContinue}
-            disabled={!selectedOption}
+            className={`continue-button ${selectedOption !== null ? 'enabled' : ''}`}
+            onClick={selectedOption !== null ? checkAnswer : undefined}
           >
             Tiếp tục
           </button>
