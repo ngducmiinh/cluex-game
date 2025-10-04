@@ -164,6 +164,11 @@
   margin-right: 8px;
 }
 
+.last-message.missed-call {
+  color: #ff3b30;
+  font-weight: 500;
+}
+
 .unread-badge {
   background: #25D366;
   color: white;

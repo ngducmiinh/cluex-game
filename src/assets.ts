@@ -4,7 +4,7 @@ const IMAGES = {
     main: './images/backgrounds/background.png',
   },
   icons: {
-    logo: './images/icons/cluexicon.png',
+    logo: './images/icons/cluexicon-new.png',
   }
 };
 

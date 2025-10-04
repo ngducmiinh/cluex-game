@@ -61,7 +61,9 @@ const MessagesList: React.FC<MessagesListProps> = ({ onChatSelect, onBack }) => 
             <div className="chat-info">
               <div className="chat-details">
                 <h3 className="chat-name">{chat.name}</h3>
-                <p className="last-message">{chat.lastMessage}</p>
+                <p className={`last-message ${chat.lastMessage === 'Cuộc gọi nhỡ' ? 'missed-call' : ''}`}>
+                  {chat.lastMessage === 'Cuộc gọi nhỡ' && '📞 '}{chat.lastMessage}
+                </p>
               </div>
               <div className="chat-meta">
                 <span className="chat-time">{chat.time}</span>

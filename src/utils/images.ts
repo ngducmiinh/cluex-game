@@ -3,7 +3,7 @@
 export const IMAGES = {
   // Icons
   ICONS: {
-    CLUEX_LOGO: process.env.PUBLIC_URL + '/images/icons/cluexicon.png',
+    CLUEX_LOGO: process.env.PUBLIC_URL + '/images/icons/cluexicon-new.png',
     MESSAGES: process.env.PUBLIC_URL + '/images/icons/messages-icon.svg',
     PHONE: process.env.PUBLIC_URL + '/images/icons/phone-icon.svg',
     CAMERA: process.env.PUBLIC_URL + '/images/icons/camera-icon.svg',

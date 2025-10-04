@@ -3,17 +3,17 @@
   "name": "ClueX Game - Đáp án Game",
   "icons": [
     {
-      "src": "images/icons/cluexicon.png",
+      "src": "images/icons/cluexicon-new.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/png"
     },
     {
-      "src": "images/icons/cluexicon.png",
+      "src": "images/icons/cluexicon-new.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "images/icons/cluexicon.png",
+      "src": "images/icons/cluexicon-new.png",
       "type": "image/png",
       "sizes": "512x512"
     }
