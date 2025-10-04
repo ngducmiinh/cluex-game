@@ -21,9 +21,9 @@ const MessagesList: React.FC<MessagesListProps> = ({ onChatSelect, onBack }) => 
       id: 'tuong-vy',
       name: 'Tường Vy',
       avatar: 'TV',
-      lastMessage: 'Đừng như thế mà Quân, chúng ta nói chuyện bàn hết đi',
+      lastMessage: 'Cuộc gọi nhỡ',
       time: '22:54',
-      unread: 3
+      unread: 2
     },
   ];
 

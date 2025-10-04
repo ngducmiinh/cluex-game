@@ -147,14 +147,6 @@ const ChatView: React.FC<ChatViewProps> = ({ chatId, onBack }) => {
             time: '23:16',
             isMe: false,
             type: 'missed_call' as const
-          },
-          {
-            id: 17,
-            sender: 'Tường Vy',
-            text: '☎️ Cuộc gọi nhỡ',
-            time: '23:42',
-            isMe: false,
-            type: 'missed_call' as const
           }
         ]
       };
