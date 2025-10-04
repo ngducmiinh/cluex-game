@@ -10,17 +10,7 @@ const LockScreen: React.FC<LockScreenProps> = ({ onUnlock }) => {
   const [password, setPassword] = useState('');
   const [showError, setShowError] = useState(false);
   const [showHint, setShowHint] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
   const correctPassword = '103117';
-
-  const getCurrentTime = () => {
-    const now = new Date();
-    return now.toLocaleTimeString('vi-VN', { 
-      hour: '2-digit', 
-      minute: '2-digit',
-      hour12: false 
-    });
-  };
 
   const handleNumberPress = (num: string) => {
     if (password.length < 6) {
@@ -63,10 +53,6 @@ const LockScreen: React.FC<LockScreenProps> = ({ onUnlock }) => {
 
   const handleHint = () => {
     setShowHint(true);
-  };
-  
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
   };
 
   return (
