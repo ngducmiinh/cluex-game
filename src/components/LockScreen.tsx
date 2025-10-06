@@ -10,6 +10,7 @@ const LockScreen: React.FC<LockScreenProps> = ({ onUnlock }) => {
   const [password, setPassword] = useState('');
   const [showError, setShowError] = useState(false);
   const [showHint, setShowHint] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const correctPassword = '103117';
 
   const handleNumberPress = (num: string) => {
@@ -65,21 +66,27 @@ const LockScreen: React.FC<LockScreenProps> = ({ onUnlock }) => {
       </div>
 
       <div className="lock-content">
-        <div className="app-header">
-          <h2>Mật khẩu của bạn</h2>
-        </div>
+        <h2 className="password-title">Mật khẩu của bạn</h2>
 
-        <div className={`password-display ${showError ? 'password-error' : ''}`}>
-          <div className="password-input-field">
-            <input type="text" value={password || "123456"} readOnly className="password-text-field" />
-            <button className="toggle-visibility-btn">
-              👁️
+        <div className="password-display">
+          <div className={`password-input-container ${showError ? 'error-border' : ''}`}>
+            <span className="password-text">
+              {showPassword ? password : password && Array.from(password).map((_, index) => '•').join('')}
+            </span>
+            <button 
+              className="toggle-visibility-btn" 
+              onClick={() => setShowPassword(!showPassword)}
+              type="button"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" fill="currentColor"/>
+              </svg>
             </button>
           </div>
         </div>
         
         {showError && (
-          <div className="error-message">Sai mật khẩu. Vui lòng thử lại</div>
+          <div className="error-message">Sai mật khẩu. Vui lòng thử lại.</div>
         )}
 
         <div className="keypad-grid">
@@ -122,6 +129,7 @@ const LockScreen: React.FC<LockScreenProps> = ({ onUnlock }) => {
           <button 
             className="button primary" 
             onClick={handleContinue}
+            disabled={password.length === 0}
           >
             Tiếp tục
           </button>

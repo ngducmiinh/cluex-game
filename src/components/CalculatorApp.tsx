@@ -84,11 +84,13 @@ const CalculatorApp: React.FC<CalculatorAppProps> = ({ onBack }) => {
 
   return (
     <div className="calculator-app">
-      <div className="app-header">
+      <div className="app-header messages-header">
         <button className="app-back-button" onClick={onBack}>
           <span>←</span>
         </button>
-        <h2>Calculator</h2>
+        <div className="contact-name">
+          <h2>Calculator</h2>
+        </div>
       </div>
 
       <div className="calculator-content">

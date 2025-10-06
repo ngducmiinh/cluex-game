@@ -8,11 +8,13 @@ interface CameraAppProps {
 const CameraApp: React.FC<CameraAppProps> = ({ onBack }) => {
   return (
     <div className="camera-app">
-      <div className="app-header">
+      <div className="app-header messages-header">
         <button className="app-back-button" onClick={onBack}>
           <span>←</span>
         </button>
-        <h2>Camera</h2>
+        <div className="contact-name">
+          <h2>Camera</h2>
+        </div>
       </div>
 
       <div className="camera-content">

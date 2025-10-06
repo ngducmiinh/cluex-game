@@ -43,11 +43,13 @@ const PhoneApp: React.FC<PhoneAppProps> = ({ onBack }) => {
 
   return (
     <div className="phone-app">
-      <div className="app-header">
+      <div className="app-header messages-header">
         <button className="app-back-button" onClick={onBack}>
           <span>←</span>
         </button>
-        <h2>Phone</h2>
+        <div className="contact-name">
+          <h2>Phone</h2>
+        </div>
       </div>
 
       <div className="phone-content">

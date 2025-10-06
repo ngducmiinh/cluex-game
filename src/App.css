@@ -216,9 +216,7 @@ body.no-scroll {
 .phone-screen {
   width: 100%;
   height: 100%;
-  background: url('/images/backgrounds/dthoai.jpg');
-  background-size: cover;
-  background-position: center;
+  background: #000;
   overflow: hidden;
   position: relative;
   border-radius: 28px;

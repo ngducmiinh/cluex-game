@@ -2,6 +2,8 @@
 const IMAGES = {
   backgrounds: {
     main: './images/backgrounds/background.png',
+    homeScreen: './images/backgrounds/background.png',
+    lockScreen: './images/backgrounds/dthoai.jpg',
   },
   icons: {
     logo: './images/icons/cluexicon-new.png',
