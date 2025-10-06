@@ -25,6 +25,14 @@ const MessagesList: React.FC<MessagesListProps> = ({ onChatSelect, onBack }) => 
       time: '22:54',
       unread: 2
     },
+    {
+      id: 'tien-anh',
+      name: 'Tiến Anh',
+      avatar: 'TA',
+      lastMessage: 'Mày bị sao vậy? Là đùa thôi đúng ko?',
+      time: '20:58',
+      unread: 2
+    },
   ];
 
   return (

@@ -66,18 +66,20 @@ const LockScreen: React.FC<LockScreenProps> = ({ onUnlock }) => {
 
       <div className="lock-content">
         <div className="app-header">
-          <h2>Nhập mật mã</h2>
+          <h2>Mật khẩu của bạn</h2>
         </div>
 
         <div className={`password-display ${showError ? 'password-error' : ''}`}>
-          {password && Array.from(password).map((_, index) => (
-            <span key={index} className={`password-char ${showError ? 'error' : ''}`}>•</span>
-          ))}
-          <span className="password-cursor"></span>
+          <div className="password-input-field">
+            <input type="text" value={password || "123456"} readOnly className="password-text-field" />
+            <button className="toggle-visibility-btn">
+              👁️
+            </button>
+          </div>
         </div>
         
         {showError && (
-          <div className="error-message">Sai mật khẩu. Vui lòng thử lại.</div>
+          <div className="error-message">Sai mật khẩu. Vui lòng thử lại</div>
         )}
 
         <div className="keypad-grid">
@@ -120,7 +122,6 @@ const LockScreen: React.FC<LockScreenProps> = ({ onUnlock }) => {
           <button 
             className="button primary" 
             onClick={handleContinue}
-            disabled={password.length === 0}
           >
             Tiếp tục
           </button>
