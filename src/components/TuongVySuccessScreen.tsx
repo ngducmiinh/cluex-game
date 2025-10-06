@@ -96,7 +96,7 @@ const TuongVySuccessScreen: React.FC<TuongVySuccessScreenProps> = ({ onBackToLan
           <button className="app-back-button" onClick={onBackToLanding}>
             <span>←</span>
           </button>
-          <h2>Vụ Án Tường Vy</h2>
+          <h2>Trường học - Ký ức 2010</h2>
         </div>
 
         <div className="question-box success-box">
