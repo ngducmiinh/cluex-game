@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   color: white;
+  overflow: hidden;
 }
 
 /* Using common app-header and app-back-button styles from App.css */
@@ -14,6 +15,8 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .calculator-display {
@@ -21,9 +24,9 @@
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
-  padding: 40px 20px;
+  padding: 20px;
   background: #000000;
-  height: 150px;
+  height: 120px;
 }
 
 .display-text {
@@ -40,8 +43,10 @@
 .calculator-buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: minmax(70px, auto);
+  grid-template-rows: repeat(5, 1fr);
+  flex: 1;
   gap: 1px;
+  min-height: 0;
 }
 
 .button-row {
@@ -50,14 +55,14 @@
 
 .calc-button {
   width: 100%;
-  height: 70px;
+  height: 100%;
   border: none;
   font-size: 28px;
   font-weight: 400;
   cursor: pointer;
   outline: none;
   transition: all 0.1s ease;
-  border: 0.5px solid #333333;
+  border: 0.5px solid rgba(51, 51, 51, 0.5);
 }
 
 .calc-button:active {

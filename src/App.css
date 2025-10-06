@@ -193,9 +193,9 @@ body.no-scroll {
   overflow: hidden;
   
   /* Điện thoại giả lập cho máy tính */
-  max-width: 390px;
-  max-height: 844px;
-  margin: 30px auto;
+  max-width: 450px;
+  max-height: 920px;
+  margin: 20px auto;
   border: 12px solid #222;
   border-radius: 40px;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
@@ -448,9 +448,9 @@ body.no-scroll {
 @media (min-width: 1024px) {
   /* Điện thoại giả lập cho máy tính - kích thước đầy đủ */
   .phone-container {
-    max-width: 390px;
-    max-height: 844px;
-    margin: 30px auto;
+    max-width: 450px;
+    max-height: 920px;
+    margin: 20px auto;
     border: 12px solid #222;
     border-radius: 40px;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
@@ -513,8 +513,8 @@ body.no-scroll {
   
   /* Điện thoại giả lập cho tablet - kích thước trung bình */
   .phone-container {
-    max-width: 350px;
-    max-height: 750px;
+    max-width: 400px;
+    max-height: 850px;
     margin: 20px auto;
     border-width: 10px;
     border-radius: 30px;

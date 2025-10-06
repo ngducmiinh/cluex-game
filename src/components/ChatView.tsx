@@ -13,10 +13,12 @@ interface Message {
 interface ChatViewProps {
   chatId: string;
   onBack: () => void;
+  onShowAnswer?: () => void;
 }
 
-const ChatView: React.FC<ChatViewProps> = ({ chatId, onBack }) => {
+const ChatView: React.FC<ChatViewProps> = ({ chatId, onBack, onShowAnswer }) => {
   const [callState, setCallState] = useState<'none' | 'calling' | 'busy'>('none');
+  const showAnswerButton = chatId === 'tuong-vy';
 
   const handleCallClick = () => {
     setCallState('calling');
@@ -29,8 +31,133 @@ const ChatView: React.FC<ChatViewProps> = ({ chatId, onBack }) => {
       }, 2000);
     }, 3000);
   };
+
+  const handleShowAnswer = () => {
+    if (onShowAnswer) {
+      onShowAnswer();
+    }
+  };
   const getChatData = (chatId: string) => {
-    if (chatId === 'tuong-vy') {
+    if (chatId === 'tien-anh') {
+      return {
+        name: 'Tiến Anh',
+        avatar: 'TA',
+        messages: [
+          {
+            id: 1,
+            sender: 'Tiến Anh',
+            text: 'Mai m đi net với t ko Quân',
+            time: '23:07',
+            isMe: false
+          },
+          {
+            id: 2,
+            sender: 'Me',
+            text: 'Lúc nào thế? Mai t còn lên trường có việc nữa',
+            time: '23:08',
+            isMe: true
+          },
+          {
+            id: 3,
+            sender: 'Tiến Anh',
+            text: 'Đang nghỉ hè m lên trường chơi với ma à',
+            time: '23:09',
+            isMe: false
+          },
+          {
+            id: 4,
+            sender: 'Me',
+            text: 'Chiều t có việc thật. Ngày kia anh với chú đi net nhé',
+            time: '23:11',
+            isMe: true
+          },
+          {
+            id: 5,
+            sender: 'Tiến Anh',
+            text: 'M lên trường lúc nào? Về rồi đi chơi ko dc à? T chơi 1 mình chán vc',
+            time: '23:12',
+            isMe: false
+          },
+          {
+            id: 6,
+            sender: 'Me',
+            text: 'Thôi về ăn cơm, đi muộn mẹ t lại chửi cả 2 thằng =)))',
+            time: '23:20',
+            isMe: true
+          },
+          {
+            id: 7,
+            sender: 'Me',
+            text: 'Chiều khoảng 4h gì đó t đạp xe qua trường, chắc 5h30 6h mới xong',
+            time: '23:20',
+            isMe: true
+          },
+          {
+            id: 8,
+            sender: 'Tiến Anh',
+            text: 'Hay t đi cùng m nhé. Mai t bị thừa thời gian, ở nhà lại phải làm việc nhà với chăm em :)',
+            time: '23:21',
+            isMe: false
+          },
+          {
+            id: 9,
+            sender: 'Me',
+            text: 'T lên trường giải quyết vụ nghiên cứu. T ko thể mất trắng tất cả như vậy được. T xử lý đc vụ này, t sẽ nộp bằng chứng tố cáo lên hội đồng nhà trường và gửi cho cả hội đồng bên Nhật.',
+            time: '23:23',
+            isMe: true
+          },
+          {
+            id: 10,
+            sender: 'Tiến Anh',
+            text: 'M vẫn định làm căng vậy à… Nhà mấy đứa kia lực lắm, m nghĩ kĩ chưa? Chuyện này phức tạp hơn m tưởng',
+            time: '23:30',
+            isMe: false
+          },
+          {
+            id: 11,
+            sender: 'Me',
+            text: 'Rồi, chuyện của t, t tự xử lý đc. M ko cần lo thừa đâu',
+            time: '23:32',
+            isMe: true
+          },
+          {
+            id: 12,
+            sender: 'Tiến Anh',
+            text: 'Ok vậy thôi. Ko cần t đi cùng thật à',
+            time: '23:33',
+            isMe: false
+          },
+          {
+            id: 13,
+            sender: 'Me',
+            text: 'Ko cần, m đi cùng có giúp dc gì đâu. Toàn làm t mất tập trung',
+            time: '23:34',
+            isMe: true
+          },
+          {
+            id: 14,
+            sender: 'Me',
+            text: 'Thôi ngủ sớm đi',
+            time: '23:35',
+            isMe: true
+          },
+          {
+            id: 15,
+            sender: 'Tiến Anh',
+            text: 'Ủa m gửi được chua??? Sao ko thấy cập nhật gì vậy',
+            time: '18:06',
+            isMe: false
+          },
+          {
+            id: 16,
+            sender: 'Tiến Anh',
+            text: 'Quân… Mày bị sao vậy? Là đùa thôi đúng ko? Dậy đi mà Quân',
+            time: '20:58',
+            isMe: false
+          }
+        ]
+      };
+    } else if (chatId === 'tuong-vy') {
       return {
         name: 'Tường Vy',
         avatar: 'TV',
@@ -219,7 +346,10 @@ const ChatView: React.FC<ChatViewProps> = ({ chatId, onBack }) => {
           <h2>{chatData.name}</h2>
         </div>
         <div className="header-actions">
-          <button className="action-button" onClick={handleCallClick}>📞</button>
+          {showAnswerButton && (
+            <button className="answer-button" onClick={handleShowAnswer} style={{ fontSize: '14px', padding: '8px 16px', borderRadius: '4px', backgroundColor: '#e63946', marginRight: '8px', marginLeft: '25px' }}>Xem đáp án</button>
+          )}
+          <button className="action-button" onClick={handleCallClick} style={{ marginLeft: '12px' }}>📞</button>
         </div>
       </div>
 

@@ -14,10 +14,12 @@ import GolfCaseSuccessScreen from './components/GolfCaseSuccessScreen';
 import LastWordsScreen from './components/LastWordsScreen';
 // LastWordsNextQuestionScreen removed - skipping to success directly
 import LastWordsSuccessScreen from './components/LastWordsSuccessScreen';
+import TuongVyAnswerScreen from './components/TuongVyAnswerScreen';
+import TuongVySuccessScreen from './components/TuongVySuccessScreen';
 import './App.css';
 
 // Thêm các loại màn hình ứng dụng mới
-type AppScreen = 'landing' | 'phone' | 'san-golf' | 'san-golf-next-question' | 'san-golf-success' | 'last-words' | 'last-words-next-question' | 'last-words-success';
+type AppScreen = 'landing' | 'phone' | 'san-golf' | 'san-golf-next-question' | 'san-golf-success' | 'last-words' | 'last-words-next-question' | 'last-words-success' | 'tuong-vy-answer' | 'tuong-vy-success';
 type PhoneScreen = 'lock' | 'home' | 'messages' | 'phone' | 'camera' | 'photos' | 'weather' | 'calculator';
 
 function App() {
@@ -56,6 +58,16 @@ function App() {
   };
   
   // handleLastWordsSolveCase removed - skipping to success directly
+
+  // Xử lý khi chuyển sang màn hình câu đố Tường Vy
+  const handleShowTuongVyAnswer = () => {
+    setCurrentApp('tuong-vy-answer');
+  };
+
+  // Xử lý khi trả lời đúng câu hỏi của Tường Vy
+  const handleTuongVyCorrectAnswer = () => {
+    setCurrentApp('tuong-vy-success');
+  };
 
   const handleUnlock = () => {
     setCurrentScreen('home');
@@ -97,7 +109,7 @@ function App() {
       case 'home':
         return <HomeScreen onAppOpen={handleAppOpen} />;
       case 'messages':
-        return <MessagesApp onBack={handleBackToHome} />;
+        return <MessagesApp onBack={handleBackToHome} onShowTuongVyAnswer={handleShowTuongVyAnswer} />;
       case 'phone':
         return <PhoneApp onBack={handleBackToHome} />;
       case 'camera':
@@ -177,6 +189,22 @@ function App() {
       case 'san-golf-success':
         return (
           <GolfCaseSuccessScreen 
+            onBackToLanding={handleBackToLanding}
+          />
+        );
+      case 'tuong-vy-answer':
+        return (
+          <TuongVyAnswerScreen 
+            onBackToChat={() => {
+              setCurrentApp('phone');
+              setCurrentScreen('messages');
+            }}
+            onCorrectAnswer={handleTuongVyCorrectAnswer}
+          />
+        );
+      case 'tuong-vy-success':
+        return (
+          <TuongVySuccessScreen 
             onBackToLanding={handleBackToLanding}
           />
         );

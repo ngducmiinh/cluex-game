@@ -5,9 +5,10 @@ import './MessagesApp.css';
 
 interface MessagesAppProps {
   onBack: () => void;
+  onShowTuongVyAnswer?: () => void;
 }
 
-const MessagesApp: React.FC<MessagesAppProps> = ({ onBack }) => {
+const MessagesApp: React.FC<MessagesAppProps> = ({ onBack, onShowTuongVyAnswer }) => {
   const [currentView, setCurrentView] = useState<'list' | 'chat'>('list');
   const [selectedChatId, setSelectedChatId] = useState<string>('');
 
@@ -25,13 +26,21 @@ const MessagesApp: React.FC<MessagesAppProps> = ({ onBack }) => {
     onBack();
   };
 
+  const handleShowAnswer = () => {
+    if (onShowTuongVyAnswer) {
+      onShowTuongVyAnswer();
+    }
+  };
+
   if (currentView === 'chat') {
     return (
       <ChatView 
         chatId={selectedChatId} 
         onBack={handleBackToList}
+        onShowAnswer={selectedChatId === 'tuong-vy' ? handleShowAnswer : undefined}
       />
     );
+
   }
 
   return (

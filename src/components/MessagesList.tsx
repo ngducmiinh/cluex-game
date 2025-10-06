@@ -18,6 +18,14 @@ interface MessagesListProps {
 const MessagesList: React.FC<MessagesListProps> = ({ onChatSelect, onBack }) => {
   const chats: Chat[] = [
     {
+      id: 'tien-anh',
+      name: 'Tiến Anh',
+      avatar: 'TA',
+      lastMessage: 'Quân… Mày bị sao vậy? Là đùa thôi đúng ko? Dậy đi mà Quân',
+      time: '20:58',
+      unread: 2
+    },
+    {
       id: 'tuong-vy',
       name: 'Tường Vy',
       avatar: 'TV',
