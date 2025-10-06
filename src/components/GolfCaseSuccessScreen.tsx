@@ -92,8 +92,11 @@ const GolfCaseSuccessScreen: React.FC<GolfCaseSuccessScreenProps> = ({ onBackToL
           ))}
         </div>
       )}      <div className="golf-case-container wide-container">
-        <div className="logo-section">
-          <h1 className="main-title">Vụ Án Sân Golf</h1>
+        <div className="app-header">
+          <button className="app-back-button" onClick={onBackToLanding}>
+            <span>←</span>
+          </button>
+          <h2>Vụ Án Sân Golf</h2>
         </div>
 
         <div className="question-box success-box">

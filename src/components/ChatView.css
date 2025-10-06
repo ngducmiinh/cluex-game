@@ -12,16 +12,17 @@
   display: flex;
   align-items: center;
   padding: 12px 16px;
-  background: #007AFF;
-  color: white;
+  background: #ffffff;
+  color: #000;
   min-height: 56px;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .back-button {
   background: none;
   border: none;
   font-size: 24px;
-  color: white !important;
+  color: #333 !important;
   cursor: pointer;
   padding: 8px;
   margin-right: 12px;
@@ -30,7 +31,7 @@
 }
 
 .back-button:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .chat-info {
@@ -64,33 +65,55 @@
   margin: 0;
   font-size: 18px;
   font-weight: 500;
-  color: white !important;
+  color: #000 !important;
 }
 
 .online-status {
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.8);
+  color: #34C759;
   font-weight: 400;
 }
+
+.contact-name {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  justify-content: flex-start;
+  text-align: left;
+  margin-left: 40px;
+  position: relative;
+}
+
+/* .header-title - Removed since we're now using h2 directly in header-left */
 
 .header-actions {
   display: flex;
   gap: 8px;
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding-right: 8px;
 }
 
 .action-button {
   background: none;
   border: none;
   font-size: 20px;
-  color: white;
+  color: #333;
   cursor: pointer;
   padding: 8px;
   border-radius: 50%;
   transition: background-color 0.2s ease;
+  min-width: 36px;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .action-button:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .messages-container {

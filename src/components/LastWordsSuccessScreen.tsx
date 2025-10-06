@@ -92,8 +92,11 @@ const LastWordsSuccessScreen: React.FC<LastWordsSuccessScreenProps> = ({ onBackT
           ))}
         </div>
       )}      <div className="last-words-container wide-container">
-        <div className="logo-section">
-          <h1 className="main-title">Vụ Án Lời Trăn Trối</h1>
+        <div className="app-header">
+          <button className="app-back-button" onClick={onBackToLanding}>
+            <span>←</span>
+          </button>
+          <h2>Vụ Án Lời Trăn Trối</h2>
         </div>
 
         <div className="question-box success-box">

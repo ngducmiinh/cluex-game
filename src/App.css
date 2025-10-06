@@ -121,6 +121,9 @@ body.no-scroll {
   height: 100vh;
   overflow: hidden;
   position: relative;
+  padding: 20px 0;
+  justify-content: center;
+  background-color: #121212;
 }
 
 .case-content {
@@ -174,12 +177,40 @@ body.no-scroll {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
+@media (max-width: 767px) {
+  .back-to-landing-button {
+    top: 10px;
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+}
+
 .phone-container {
   width: 100%;
   height: 100vh;
   background: #000;
   position: relative;
   overflow: hidden;
+  
+  /* Điện thoại giả lập cho máy tính */
+  max-width: 390px;
+  max-height: 844px;
+  margin: 30px auto;
+  border: 12px solid #222;
+  border-radius: 40px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 767px) {
+  .phone-container {
+    height: 100%;
+  }
+}
+
+/* Notch đã được loại bỏ theo yêu cầu */
+.phone-container::before {
+  display: none;
 }
 
 .phone-screen {
@@ -188,6 +219,7 @@ body.no-scroll {
   background: #000;
   overflow: hidden;
   position: relative;
+  border-radius: 28px;
 }
 
 /* Header styles */
@@ -204,19 +236,37 @@ body.no-scroll {
   display: flex;
   align-items: center;
   padding: 14px 16px;
-  background: #007AFF;
-  color: white;
+  background: #ffffff;
+  color: #000;
   min-height: 56px;
   position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: space-between;
+  text-align: center;
 }
 
 .app-header h2 {
   margin: 0;
   font-size: 20px;
   font-weight: 500;
-  color: white;
+  color: #333;
+  flex: 0 1 auto;
+  text-align: left;
+  max-width: 70%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 0;
+}
+
+/* Style cho header-left để chứa nút back và tiêu đề */
+.header-left {
+  display: flex;
+  align-items: center;
   flex: 1;
-  text-align: center;
+  min-width: 0;
+  overflow: hidden;
 }
 
 /* Common Back Button Style */
@@ -224,25 +274,32 @@ body.no-scroll {
   background: none;
   border: none;
   font-size: 24px;
-  color: white;
+  color: #333;
   cursor: pointer;
   padding: 8px;
   border-radius: 50%;
   transition: background-color 0.2s ease;
-  position: absolute;
-  left: 16px;
-  top: 50%;
-  transform: translateY(-50%);
   z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 40px;
-  min-height: 40px;
+  min-width: 36px;
+  min-height: 36px;
+  flex: 0 0 auto;
+  margin-right: 15px;
+  width: 36px;
+  height: 36px;
+  visibility: visible;
+  position: absolute;
+  left: 8px;
+}
+
+.app-back-button.visible {
+  visibility: visible;
 }
 
 .app-back-button:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .App-title {
@@ -388,7 +445,31 @@ body.no-scroll {
 }
 
 /* Responsive styles */
-@media (max-width: 768px) {
+@media (min-width: 1024px) {
+  /* Điện thoại giả lập cho máy tính - kích thước đầy đủ */
+  .phone-container {
+    max-width: 390px;
+    max-height: 844px;
+    margin: 30px auto;
+    border: 12px solid #222;
+    border-radius: 40px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Không hiển thị notch */
+  .phone-container::before {
+    display: none;
+  }
+  
+  .phone-app-container {
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
   .App-title {
     font-size: 2.5rem;
   }
@@ -429,9 +510,23 @@ body.no-scroll {
   .App-main {
     padding: 40px 20px;
   }
+  
+  /* Điện thoại giả lập cho tablet - kích thước trung bình */
+  .phone-container {
+    max-width: 350px;
+    max-height: 750px;
+    margin: 20px auto;
+    border-width: 10px;
+    border-radius: 30px;
+  }
+  
+  /* Không hiển thị notch */
+  .phone-container::before {
+    display: none;
+  }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 767px) {
   .App-title {
     font-size: 2rem;
   }
@@ -455,5 +550,25 @@ body.no-scroll {
   
   .feature-card p {
     font-size: 0.9rem;
+  }
+  
+  /* Trên điện thoại: hiển thị toàn màn hình, không có khung giả lập */
+  .phone-container {
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    height: 100%;
+    width: 100%;
+  }
+  
+  /* Không sử dụng notch theo yêu cầu */
+  
+  .phone-app-container {
+    padding: 0;
+    height: 100%;
+    width: 100%;
   }
 }

@@ -212,10 +212,12 @@ const ChatView: React.FC<ChatViewProps> = ({ chatId, onBack }) => {
   return (
     <div className="chat-view">
       <div className="app-header">
-        <button className="app-back-button" onClick={onBack}>
+        <button className="app-back-button visible" onClick={onBack}>
           <span>←</span>
         </button>
-        <h2>{chatData.name}</h2>
+        <div className="contact-name">
+          <h2>{chatData.name}</h2>
+        </div>
         <div className="header-actions">
           <button className="action-button" onClick={handleCallClick}>📞</button>
         </div>

@@ -38,7 +38,6 @@ export const APP_ICONS = {
   photos: '📸',
   calendar: '📅',
   weather: '🌤️',
-  notes: '📝',
   calculator: '🔢',
   settings: '⚙️'
 };

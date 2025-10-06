@@ -8,6 +8,24 @@
   color: white;
 }
 
+/* Override app-header for weather app */
+.weather-app .app-header {
+  background: rgba(0, 0, 0, 0.1);
+  border-bottom: none;
+}
+
+.weather-app .app-header h2 {
+  color: white;
+}
+
+.weather-app .app-back-button {
+  color: white;
+}
+
+.weather-app .app-back-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
 .weather-header {
   display: flex;
   align-items: center;

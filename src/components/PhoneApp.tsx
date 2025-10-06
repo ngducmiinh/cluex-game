@@ -43,8 +43,8 @@ const PhoneApp: React.FC<PhoneAppProps> = ({ onBack }) => {
 
   return (
     <div className="phone-app">
-      <div className="phone-header">
-        <button className="back-button" onClick={onBack}>
+      <div className="app-header">
+        <button className="app-back-button" onClick={onBack}>
           <span>←</span>
         </button>
         <h2>Phone</h2>

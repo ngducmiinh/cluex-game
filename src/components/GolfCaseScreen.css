@@ -120,36 +120,30 @@ html body #root .App .App-container .golf-case-screen {
   justify-content: center;
 }
 
-.back-button {
-  position: absolute;
-  left: 0;
-  top: 0;
+/* Use standardized app-header styles from App.css */
+.golf-case-screen .app-header {
   background: transparent;
+  border-bottom: none;
   color: white;
-  border: none;
-  padding: 10px;
-  font-size: 24px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
 }
 
-.back-button:hover {
-  transform: scale(1.1) translateX(-2px);
+.golf-case-screen .app-header h2 {
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.golf-case-screen .app-back-button {
+  color: white;
+}
+
+.golf-case-screen .app-back-button:hover {
+  opacity: 0.8;
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
 }
 
-.main-title {
-  font-size: 40px;
-  font-weight: 700;
-  margin: 15px 0;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  text-align: center;
-  color: white;
-}
+/* Main title styling incorporated into app-header h2 */
+
 
 .question-box {
   background: rgba(0, 0, 0, 0.4);

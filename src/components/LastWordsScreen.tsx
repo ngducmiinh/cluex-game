@@ -45,11 +45,11 @@ const LastWordsScreen: React.FC<LastWordsScreenProps> = ({ onBackToLanding, onCo
     <div className="last-words-screen">
       <div className="background-image" style={backgroundStyle}></div>
       <div className="last-words-container wide-container">
-        <div className="logo-section">
-          <button className="back-button" onClick={onBackToLanding}>
-            ←
+        <div className="app-header">
+          <button className="app-back-button" onClick={onBackToLanding}>
+            <span>←</span>
           </button>
-          <h1 className="main-title">Vụ Án Lời Trăn Trối</h1>
+          <h2>Vụ Án Lời Trăn Trối</h2>
         </div>
 
         <div className="question-box">

@@ -29,11 +29,13 @@ const MessagesList: React.FC<MessagesListProps> = ({ onChatSelect, onBack }) => 
 
   return (
     <div className="messages-list">
-      <div className="app-header">
+      <div className="app-header messages-header">
         <button className="app-back-button" onClick={onBack}>
           <span>←</span>
         </button>
-        <h2>Messages</h2>
+        <div className="contact-name">
+          <h2>Messages</h2>
+        </div>
       </div>
 
       <div className="search-bar">

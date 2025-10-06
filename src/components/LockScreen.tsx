@@ -13,34 +13,36 @@ const LockScreen: React.FC<LockScreenProps> = ({ onUnlock }) => {
   const correctPassword = '103117';
 
   const handleNumberPress = (num: string) => {
-    if (password.length < 6) {
-      const newPassword = password + num;
-      setPassword(newPassword);
-      setShowError(false);
-      
-      // Automatically validate when 6 digits are entered
-      if (newPassword.length === 6) {
-        validatePassword(newPassword);
-      }
+    const newPassword = password + num;
+    setPassword(newPassword);
+    setShowError(false);
+    
+    // Limit to reasonable password length
+    if (newPassword.length >= 10) {
+      showErrorMessage('Mật khẩu quá dài');
     }
   };
   
-  const validatePassword = (pass: string) => {
-    if (pass === correctPassword) {
+  const showErrorMessage = (message?: string) => {
+    setShowError(true);
+    setPassword('');
+    
+    // Add vibration if supported
+    if (navigator.vibrate) {
+      navigator.vibrate([100, 50, 100]);
+    }
+    
+    // Automatically hide error after 2 seconds
+    setTimeout(() => {
+      setShowError(false);
+    }, 2000);
+  };
+
+  const handleContinue = () => {
+    if (password === correctPassword) {
       onUnlock();
     } else {
-      setShowError(true);
-      setPassword('');
-      
-      // Add vibration if supported
-      if (navigator.vibrate) {
-        navigator.vibrate([100, 50, 100]);
-      }
-      
-      // Automatically hide error after 2 seconds
-      setTimeout(() => {
-        setShowError(false);
-      }, 2000);
+      showErrorMessage();
     }
   };
 
@@ -63,17 +65,15 @@ const LockScreen: React.FC<LockScreenProps> = ({ onUnlock }) => {
       </div>
 
       <div className="lock-content">
-        <div className="lock-header">
-          <h2 className="lock-title">Nhập mật mã</h2>
+        <div className="app-header">
+          <h2>Nhập mật mã</h2>
         </div>
 
-        <div className={`password-dots-container ${showError ? 'password-error' : ''}`}>
-          {[1, 2, 3, 4, 5, 6].map((_, index) => (
-            <div 
-              key={index} 
-              className={`password-dot ${index < password.length ? 'filled' : ''} ${showError ? 'error' : ''}`}
-            />
+        <div className={`password-display ${showError ? 'password-error' : ''}`}>
+          {password && Array.from(password).map((_, index) => (
+            <span key={index} className={`password-char ${showError ? 'error' : ''}`}>•</span>
           ))}
+          <span className="password-cursor"></span>
         </div>
         
         {showError && (
@@ -116,6 +116,13 @@ const LockScreen: React.FC<LockScreenProps> = ({ onUnlock }) => {
         <div className="action-buttons">
           <button className="button secondary" onClick={handleHint}>
             Gợi ý
+          </button>
+          <button 
+            className="button primary" 
+            onClick={handleContinue}
+            disabled={password.length === 0}
+          >
+            Tiếp tục
           </button>
         </div>
       </div>

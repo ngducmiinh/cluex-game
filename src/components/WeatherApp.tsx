@@ -8,8 +8,8 @@ interface WeatherAppProps {
 const WeatherApp: React.FC<WeatherAppProps> = ({ onBack }) => {
   return (
     <div className="weather-app">
-      <div className="weather-header">
-        <button className="back-button" onClick={onBack}>
+      <div className="app-header">
+        <button className="app-back-button" onClick={onBack}>
           <span>←</span>
         </button>
         <h2>Weather</h2>

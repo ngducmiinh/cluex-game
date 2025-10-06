@@ -7,7 +7,6 @@ import PhoneApp from './components/PhoneApp';
 import CameraApp from './components/CameraApp';
 import PhotosApp from './components/PhotosApp';
 import WeatherApp from './components/WeatherApp';
-import NotesApp from './components/NotesApp';
 import CalculatorApp from './components/CalculatorApp';
 import GolfCaseScreen from './components/GolfCaseScreen';
 import GolfCaseNextQuestionScreen from './components/GolfCaseNextQuestionScreen';
@@ -19,7 +18,7 @@ import './App.css';
 
 // Thêm các loại màn hình ứng dụng mới
 type AppScreen = 'landing' | 'phone' | 'san-golf' | 'san-golf-next-question' | 'san-golf-success' | 'last-words' | 'last-words-next-question' | 'last-words-success';
-type PhoneScreen = 'lock' | 'home' | 'messages' | 'phone' | 'camera' | 'photos' | 'weather' | 'notes' | 'calculator';
+type PhoneScreen = 'lock' | 'home' | 'messages' | 'phone' | 'camera' | 'photos' | 'weather' | 'calculator';
 
 function App() {
   const [currentApp, setCurrentApp] = useState<AppScreen>('landing');
@@ -79,9 +78,6 @@ function App() {
       case 'weather':
         setCurrentScreen('weather');
         break;
-      case 'notes':
-        setCurrentScreen('notes');
-        break;
       case 'calculator':
         setCurrentScreen('calculator');
         break;
@@ -110,8 +106,6 @@ function App() {
         return <PhotosApp onBack={handleBackToHome} />;
       case 'weather':
         return <WeatherApp onBack={handleBackToHome} />;
-      case 'notes':
-        return <NotesApp onBack={handleBackToHome} />;
       case 'calculator':
         return <CalculatorApp onBack={handleBackToHome} />;
       default:
@@ -135,11 +129,15 @@ function App() {
       case 'phone':
         return (
           <div className="phone-app-container">
-            <button className="back-to-landing-button" onClick={handleBackToLanding}>
-              Quay lại trang chủ
-            </button>
+            {currentScreen === 'lock' && (
+              <button className="back-to-landing-button" onClick={handleBackToLanding}>
+                Quay lại trang chủ
+              </button>
+            )}
             <div className="phone-container">
-              {renderScreen()}
+              <div className="phone-screen">
+                {renderScreen()}
+              </div>
             </div>
           </div>
         );

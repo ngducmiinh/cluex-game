@@ -8,6 +8,24 @@
   position: relative;
 }
 
+/* Override app-header for dark camera background */
+.camera-app .app-header {
+  background: #000000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.camera-app .app-header h2 {
+  color: white;
+}
+
+.camera-app .app-back-button {
+  color: white;
+}
+
+.camera-app .app-back-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
 .camera-header {
   display: flex;
   align-items: center;

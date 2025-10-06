@@ -29,6 +29,37 @@
   padding: 20px;
 }
 
+.last-words-screen .app-header {
+  background: transparent;
+  border-bottom: none;
+  color: white;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.last-words-screen .app-header h2 {
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.last-words-screen .app-back-button {
+  position: absolute;
+  left: 0;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Media query cho điện thoại */
 @media screen and (max-width: 768px) {
   .success-title {

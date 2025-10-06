@@ -23,7 +23,6 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ onAppOpen }) => {
     { id: 'camera', name: 'Camera', icon: '📷', color: '#9E9E9E' },
     { id: 'photos', name: 'Photos', icon: '🖼️', color: '#FF9800' },
     { id: 'weather', name: 'Weather', icon: '🌤️', color: '#03A9F4' },
-    { id: 'notes', name: 'Notes', icon: '📝', color: '#FFC107' },
     { id: 'calculator', name: 'Calculator', icon: '🔢', color: '#E91E63' },
   ];
 

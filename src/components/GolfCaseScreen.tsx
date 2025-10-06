@@ -47,11 +47,11 @@ const GolfCaseScreen: React.FC<GolfCaseScreenProps> = ({
     <div className="golf-case-screen">
       <div className="background-image" style={backgroundStyle}></div>
       <div className="golf-case-container">
-        <div className="logo-section">
-          <button className="back-button" onClick={onBackToLanding}>
-            ←
+        <div className="app-header">
+          <button className="app-back-button" onClick={onBackToLanding}>
+            <span>←</span>
           </button>
-          <h1 className="main-title">Vụ Án Sân Golf</h1>
+          <h2>Vụ Án Sân Golf</h2>
         </div>
 
         <div className="question-box">
