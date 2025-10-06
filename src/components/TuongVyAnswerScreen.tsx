@@ -62,7 +62,7 @@ const TuongVyAnswerScreen: React.FC<TuongVyAnswerScreenProps> = ({ onBackToChat,
           <button className="app-back-button" onClick={onBackToChat}>
             <span>←</span>
           </button>
-          <h2>Vụ Án Tường Vy</h2>
+          <h2>Trường học - Ký ức 2010</h2>
         </div>
 
         <div className="question-box">
