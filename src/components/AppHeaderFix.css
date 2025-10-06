@@ -1,0 +1,56 @@
+/* CSS để fix position cho các headers trong apps của điện thoại giả lập */
+
+/* Fix chung cho tất cả app headers */
+.app-header,
+.messages-header,
+.chat-header,
+.photos-header,
+.calculator-header,
+.weather-header,
+.phone-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Đảm bảo header hiển thị phía trên các phần tử khác */
+  background-color: inherit;
+  width: 100%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Fix cụ thể cho MessagesApp */
+.messages-app .messages-header,
+.messages-app .app-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Fix cụ thể cho ChatView */
+.chat-view .app-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Đảm bảo scrolling hoạt động đúng trong các container */
+.messages-container,
+.chat-container,
+.photos-container,
+.calculator-container,
+.weather-container,
+.phone-container {
+  overflow-y: auto;
+  height: calc(100% - 60px); /* Trừ đi chiều cao của header */
+}
+
+/* Fix cụ thể cho container tin nhắn trong ChatView */
+.messages-container {
+  padding-bottom: 60px; /* Để tạo không gian cho input box */
+}
+
+/* Đảm bảo input box luôn ở cuối màn hình */
+.message-input-container {
+  position: sticky;
+  bottom: 0;
+  background-color: white;
+  z-index: 999;
+}
