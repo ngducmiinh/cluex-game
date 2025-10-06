@@ -160,7 +160,7 @@ const TuongVyAnswerScreen: React.FC<TuongVyAnswerScreenProps> = ({ onBackToChat,
           )}
 
           <button 
-            className="submit-button"
+            className={`continue-button ${selectedOptions.length > 0 ? 'enabled' : ''}`}
             onClick={checkAnswer}
             disabled={selectedOptions.length === 0}
           >

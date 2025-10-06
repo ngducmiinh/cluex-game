@@ -71,7 +71,7 @@ const LandingPage: React.FC<LandingPageProps> = ({
                 <div className="radio-inner"></div>
               </div>
               <div className="option-content">
-                <span className="option-text">Nghiên cứu</span>
+                <span className="option-text">Trường học - Ký ức 2010</span>
                 <span className="option-subtitle">Chọn mục này để nhập mật khẩu giải đố của Big Case</span>
               </div>
             </div>
