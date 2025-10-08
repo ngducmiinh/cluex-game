@@ -92,7 +92,15 @@ const LastWordsNextQuestionScreen: React.FC<LastWordsNextQuestionScreenProps> = 
           </div>
 
           {hasAnswered && !isCorrect && (
-            <div className="error-message">
+            <div className="error-message" style={{
+              textAlign: 'center',
+              margin: '20px auto',
+              padding: '15px',
+              width: '100%',
+              maxWidth: '100%',
+              boxSizing: 'border-box',
+              display: 'block'
+            }}>
               Sai rồi! Hãy phân tích thông điệp trong mẩu giấy kỹ hơn.
             </div>
           )}

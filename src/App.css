@@ -298,6 +298,18 @@ body.no-scroll {
   visibility: visible;
 }
 
+/* Định dạng chung cho các thông báo lỗi và thành công */
+.error-message,
+.success-message {
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  white-space: normal;
+  word-wrap: break-word;
+  line-height: 1.5;
+  display: block;
+}
+
 .app-back-button:hover {
   background: rgba(0, 0, 0, 0.05);
 }

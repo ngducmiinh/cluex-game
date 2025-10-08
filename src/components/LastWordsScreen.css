@@ -254,6 +254,11 @@ html body #root .App .App-container .last-words-screen {
   margin: 20px 0;
   font-weight: 500;
   border: 1px solid rgba(126, 49, 24, 0.5);
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  white-space: normal;
+  word-wrap: break-word;
 }
 
 .success-message {
@@ -263,6 +268,11 @@ html body #root .App .App-container .last-words-screen {
   border-radius: 8px;
   margin: 20px 0;
   font-weight: 500;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  white-space: normal;
+  word-wrap: break-word;
   border: 1px solid rgba(126, 49, 24, 0.4);
   line-height: 1.6;
   box-shadow: 0 0 15px rgba(126, 49, 24, 0.2);

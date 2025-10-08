@@ -86,7 +86,15 @@ const LockScreen: React.FC<LockScreenProps> = ({ onUnlock }) => {
         </div>
         
         {showError && (
-          <div className="error-message">Sai mật khẩu. Vui lòng thử lại.</div>
+          <div className="error-message" style={{
+            textAlign: 'center',
+            margin: '20px auto',
+            padding: '15px',
+            width: '100%',
+            maxWidth: '100%',
+            boxSizing: 'border-box',
+            display: 'block'
+          }}>Sai mật khẩu. Vui lòng thử lại.</div>
         )}
 
         <div className="keypad-grid">

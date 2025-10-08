@@ -17,6 +17,7 @@ import LastWordsSuccessScreen from './components/LastWordsSuccessScreen';
 import TuongVyAnswerScreen from './components/TuongVyAnswerScreen';
 import TuongVySuccessScreen from './components/TuongVySuccessScreen';
 import './App.css';
+import './components/MessageStyles.css';
 
 // Thêm các loại màn hình ứng dụng mới
 type AppScreen = 'landing' | 'phone' | 'san-golf' | 'san-golf-next-question' | 'san-golf-success' | 'last-words' | 'last-words-next-question' | 'last-words-success' | 'tuong-vy-answer' | 'tuong-vy-success';

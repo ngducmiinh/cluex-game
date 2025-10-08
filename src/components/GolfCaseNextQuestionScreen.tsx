@@ -140,7 +140,15 @@ const GolfCaseNextQuestionScreen: React.FC<GolfCaseNextQuestionScreenProps> = ({
           </div>
           
           {hasAnswered && !isCorrect && (
-            <div className="error-message">
+            <div className="error-message" style={{
+              textAlign: 'center',
+              margin: '20px auto',
+              padding: '15px',
+              width: '100%',
+              maxWidth: '100%',
+              boxSizing: 'border-box',
+              display: 'block'
+            }}>
               Đáp án chưa đúng, vui lòng chọn lại!
             </div>
           )}

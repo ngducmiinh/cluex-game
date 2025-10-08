@@ -142,7 +142,15 @@ const TuongVyAnswerScreen: React.FC<TuongVyAnswerScreenProps> = ({ onBackToChat,
           </div>
 
           {hasAnswered && !isCorrect && (
-            <div className="error-message">
+            <div className="error-message" style={{
+              textAlign: 'center',
+              margin: '20px auto',
+              padding: '15px',
+              width: '100%',
+              maxWidth: '100%',
+              boxSizing: 'border-box',
+              display: 'block'
+            }}>
               {selectedOptions.includes(0) && selectedOptions.includes(2) && selectedOptions.length > 2 ? 
                 "Bạn đã tìm ra 2 hung thủ và cả người vô tội, đừng để người vô tội bị oan khuất. Hãy thử lại nhé!" :
                 (selectedOptions.includes(0) || selectedOptions.includes(2)) && selectedOptions.length > 1 ?
@@ -154,7 +162,15 @@ const TuongVyAnswerScreen: React.FC<TuongVyAnswerScreenProps> = ({ onBackToChat,
           )}
 
           {hasAnswered && isCorrect && (
-            <div className="success-message">
+            <div className="success-message" style={{
+              textAlign: 'center',
+              margin: '20px auto',
+              padding: '15px',
+              width: '100%',
+              maxWidth: '100%',
+              boxSizing: 'border-box',
+              display: 'block'
+            }}>
               Chính xác! Phạm Tường Vy và Vũ Lê Đức Tùng là hai hung thủ.
             </div>
           )}
