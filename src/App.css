@@ -568,14 +568,20 @@ body.no-scroll {
   
   /* Trên điện thoại: hiển thị toàn màn hình, không có khung giả lập */
   .phone-container {
+<<<<<<< HEAD
     max-width: 100%;
     max-height: 100%;
+=======
+    max-width: none;
+    max-height: none;
+>>>>>>> parent of 1addd08 (Phone header)
     margin: 0;
     border: none;
     border-radius: 0;
     box-shadow: none;
     height: 100%;
     width: 100%;
+<<<<<<< HEAD
     position: absolute;
     top: 0;
     left: 0;
@@ -585,6 +591,8 @@ body.no-scroll {
     -webkit-overflow-scrolling: touch;
     background-color: black;
     padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+=======
+>>>>>>> parent of 1addd08 (Phone header)
   }
   
   /* Không sử dụng notch theo yêu cầu */
@@ -593,6 +601,7 @@ body.no-scroll {
     padding: 0;
     height: 100%;
     width: 100%;
+<<<<<<< HEAD
     display: flex;
     flex-direction: column;
   }
@@ -630,6 +639,8 @@ body.no-scroll {
   .input-container input {
     padding: 6px;
     font-size: 0.9rem;
+=======
+>>>>>>> parent of 1addd08 (Phone header)
   }
   
   /* Fix for browser toolbar at bottom */
