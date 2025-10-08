@@ -1,0 +1,53 @@
+/* Styles to fix headers in mobile apps */
+
+/* Common styles for all app headers to make them sticky */
+.app-header,
+.messages-header,
+.chat-view .app-header,
+.messages-app .app-header,
+.phone-app .app-header,
+.camera-app .app-header,
+.photos-app .app-header,
+.calculator-app .app-header,
+.weather-app .app-header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+  width: 100% !important;
+  background-color: inherit !important;
+}
+
+/* Adjust the container that holds messages to account for fixed header */
+.messages-container,
+.chat-content {
+  height: calc(100% - 60px) !important;
+  overflow-y: auto !important;
+  padding-bottom: 60px !important; /* Make room for input at bottom */
+}
+
+/* Make sure message input stays at bottom */
+.message-input-container {
+  position: sticky !important;
+  bottom: 0 !important;
+  background-color: white !important;
+  z-index: 999 !important;
+  width: 100% !important;
+}
+
+/* Ensure content doesn't hide under headers */
+.chat-view,
+.messages-app,
+.phone-app,
+.camera-app,
+.photos-app,
+.calculator-app,
+.weather-app {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+}
+
+/* Set proper overflow behavior for containers */
+.phone-container {
+  overflow: hidden !important;
+}
