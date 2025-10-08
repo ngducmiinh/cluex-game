@@ -569,20 +569,22 @@ body.no-scroll {
   /* Trên điện thoại: hiển thị toàn màn hình, không có khung giả lập */
   .phone-container {
     max-width: 100%;
-    max-height: 100vh;
+    max-height: 100%;
     margin: 0;
     border: none;
     border-radius: 0;
     box-shadow: none;
-    height: 100vh;
+    height: 100%;
     width: 100%;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    background-color: black;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
   }
   
   /* Không sử dụng notch theo yêu cầu */
@@ -596,7 +598,7 @@ body.no-scroll {
   }
 }
 
-/* For very small mobile devices */
+/* iPhone SE, iPhone 8 and similar smaller devices */
 @media (max-width: 380px) {
   .phone-container {
     font-size: 0.9em;
@@ -604,6 +606,7 @@ body.no-scroll {
   
   .app-header {
     padding: 10px;
+    height: 40px;
   }
   
   .app-header h1 {
@@ -627,5 +630,30 @@ body.no-scroll {
   .input-container input {
     padding: 6px;
     font-size: 0.9rem;
+  }
+  
+  /* Fix for browser toolbar at bottom */
+  .phone-app-container {
+    padding-bottom: env(safe-area-inset-bottom, 15px);
+  }
+}
+
+/* iPhone X/11/12/13 with notch */
+@media (min-width: 375px) and (max-height: 812px) and (orientation: portrait) {
+  .phone-container {
+    padding-top: env(safe-area-inset-top, 0);
+    padding-bottom: env(safe-area-inset-bottom, 15px);
+  }
+  
+  .app-header {
+    padding-top: env(safe-area-inset-top, 10px);
+  }
+}
+
+/* iPhone Pro/Pro Max and larger devices */
+@media (min-width: 414px) and (min-height: 896px) and (orientation: portrait) {
+  .phone-container {
+    padding-top: env(safe-area-inset-top, 0);
+    padding-bottom: env(safe-area-inset-bottom, 20px);
   }
 }

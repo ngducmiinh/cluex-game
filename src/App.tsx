@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import LandingPage from './components/LandingPage';
 import LockScreen from './components/LockScreen';
 import HomeScreen from './components/HomeScreen';
@@ -27,6 +27,37 @@ type PhoneScreen = 'lock' | 'home' | 'messages' | 'phone' | 'camera' | 'photos' 
 function App() {
   const [currentApp, setCurrentApp] = useState<AppScreen>('landing');
   const [currentScreen, setCurrentScreen] = useState<PhoneScreen>('lock');
+  
+  // Effect để xử lý vấn đề fullscreen trên mobile
+  useEffect(() => {
+    // Xử lý để ẩn thanh địa chỉ và đảm bảo ứng dụng hiển thị toàn màn hình
+    const handleScroll = () => {
+      if (document.documentElement.scrollTop > 0) {
+        window.scrollTo(0, 0);
+      }
+    };
+    
+    // Xử lý khi resize để cập nhật lại biến CSS viewport height
+    const handleResize = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
+    
+    // Gọi hàm một lần khi component mount
+    handleResize();
+    
+    // Đăng ký các event listeners
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('orientationchange', handleResize);
+    
+    // Dọn dẹp khi component unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('orientationchange', handleResize);
+    };
+  }, []);
 
   // Xử lý chọn "Nghiên cứu" - Big Case
   const handleStartResearch = () => {
