@@ -63,7 +63,7 @@ const LastWordsScreen: React.FC<LastWordsScreenProps> = ({ onBackToLanding, onCo
               <div className={`radio-button ${selectedOption === 0 ? 'selected' : ''}`}>
                 <div className="radio-inner"></div>
               </div>
-              <div className="option-text">Bản ghi âm cuộc gọi cuối cùng</div>
+              <div className="option-text">Bài báo</div>
             </div>
             
             <div 
@@ -73,7 +73,7 @@ const LastWordsScreen: React.FC<LastWordsScreenProps> = ({ onBackToLanding, onCo
               <div className={`radio-button ${selectedOption === 1 ? 'selected' : ''}`}>
                 <div className="radio-inner"></div>
               </div>
-              <div className="option-text">Mẩu giấy ghi chú tìm thấy bên cạnh nạn nhân</div>
+              <div className="option-text">Di thư của Tần Chi</div>
             </div>
             
             <div 
@@ -83,7 +83,7 @@ const LastWordsScreen: React.FC<LastWordsScreenProps> = ({ onBackToLanding, onCo
               <div className={`radio-button ${selectedOption === 2 ? 'selected' : ''}`}>
                 <div className="radio-inner"></div>
               </div>
-              <div className="option-text">Lịch sử giao dịch ngân hàng</div>
+              <div className="option-text">Lời khai của Hoàng Anh</div>
             </div>
             
             <div 
@@ -93,7 +93,7 @@ const LastWordsScreen: React.FC<LastWordsScreenProps> = ({ onBackToLanding, onCo
               <div className={`radio-button ${selectedOption === 3 ? 'selected' : ''}`}>
                 <div className="radio-inner"></div>
               </div>
-              <div className="option-text">Bản ghi camera an ninh</div>
+              <div className="option-text">Ảnh hiện trường</div>
             </div>
 
             <div 
