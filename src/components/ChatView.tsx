@@ -227,7 +227,7 @@ const ChatView: React.FC<ChatViewProps> = ({ chatId, onBack, onShowAnswer }) => 
           },
           {
             id: 10,
-            sender: 'Tường Vy',
+            sender: 'Me',
             text: 'M có biết giải thưởng lần này có thể cứu cuộc đời t ko, biết nó quan trọng với t đến mức nào ko? Bao nhiêu cố gắng của t lại để bọn mày hưởng hết à?',
             time: '22:48',
             isMe: false
